@@ -1,0 +1,16 @@
+{
+    "name": "hb/periodic-table",
+    "description": "tableau periodique des elements interactif",
+    "autoload": {
+        "psr-4": {
+            "Hb\\PeriodicTable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "GuillaumeLoriot",
+            "email": "loriot.guillaume@gmail.com"
+        }
+    ],
+    "require": {}
+}
