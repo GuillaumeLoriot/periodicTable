@@ -28,6 +28,7 @@ class Element
 
 
     public function __construct(
+        int|null $id,
         string $name,
         int $atomicNumber,
         string $chemicalSymbol,
@@ -43,6 +44,7 @@ class Element
         Abundance $abundance
     ) {
 
+        $this->id = $id;
         $this->name = $name;
         $this->atomicNumber = $atomicNumber;
         $this->chemicalSymbol = $chemicalSymbol;

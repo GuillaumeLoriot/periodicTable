@@ -10,8 +10,9 @@ class Abundance
     private string $description;
 
 
-    public function __construct(string $name, string $description)
+    public function __construct(int|null $id, string $name, string $description)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->description = $description;
     }

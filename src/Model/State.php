@@ -7,8 +7,9 @@ class State
     private ?int $id;
     private string $name;
 
-    public function __construct(string $name)
+    public function __construct(int|null $id, string $name)
     {
+        $this->id = $id;
         $this->name = $name;
     }
 

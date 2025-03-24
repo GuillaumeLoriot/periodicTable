@@ -11,8 +11,9 @@ class Family
     private bool $metal;
 
 
-    public function __construct(string $name, string $description, bool $metal)
+    public function __construct(int|null $id, string $name, string $description, bool $metal)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->metal = $metal;

@@ -13,8 +13,9 @@ class User
     private string $password;
     private string $profilPicture;
 
-    public function __construct(string $username, string $name, string $firstName, string $mail, string $password, string $profilPicture)
+    public function __construct(int|null $id, string $username, string $name, string $firstName, string $mail, string $password, string $profilPicture)
     {
+        $this->id = $id;
         $this->username = $username;
         $this->name = $name;
         $this->firstName = $firstName;
