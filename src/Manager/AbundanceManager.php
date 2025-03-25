@@ -18,14 +18,14 @@ class AbundanceManager extends DatabaseManager{
 
         $arrayAbundances = $request->fetchAll();
         //Créer un tableau qui contiendra les objets Abundance
-        $Abundances = [];
+        $abundances = [];
         //Boucle sur le tableau $arrayAbundance pour créer les objets Abundance 
         // Chaque élément du tableau $arrayAbundance est un tableau associatif
         foreach ($arrayAbundances as $arrayAbundance) {
             //Istantiation d'un objet Abundances avec les données du tableau associatif  
-            $Abundances[] = new Abundance($arrayAbundance["id"], $arrayAbundance["name"], $arrayAbundance["description"]);
+            $abundances[] = new Abundance($arrayAbundance["id"], $arrayAbundance["name"], $arrayAbundance["description"]);
         }
-        return $Abundances;
+        return $abundances;
     }
 
 

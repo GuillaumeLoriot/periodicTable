@@ -35,7 +35,7 @@ class StateManager extends DatabaseManager{
      * @param  int $id
      * @return State
      */
-    public function selectByID(int $id): State|false
+    public function selectById(int $id): State|false
     {
         $requete = self::getConnexion()->prepare("SELECT * FROM `state` WHERE id = :id;");
         $requete->execute([
@@ -96,7 +96,7 @@ class StateManager extends DatabaseManager{
      * @param  int $id
      * @return bool
      */
-    public function deleteByID(int $id): bool
+    public function deleteById(int $id): bool
     {
         $requete = self::getConnexion()->prepare("DELETE FROM `state` WHERE id = :id;");
         $requete->execute([

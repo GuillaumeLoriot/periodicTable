@@ -18,14 +18,14 @@ class FamilyManager extends DatabaseManager{
 
         $arrayFamilies = $request->fetchAll();
         //Créer un tableau qui contiendra les objets Family
-        $Families = [];
+        $families = [];
         //Boucle sur le tableau $arrayFamily pour créer les objets Family 
         // Chaque élément du tableau $arrayFamily est un tableau associatif
         foreach ($arrayFamilies as $arrayFamily) {
             //Istantiation d'un objet Families avec les données du tableau associatif  
-            $Families[] = new Family($arrayFamily["id"], $arrayFamily["name"], $arrayFamily["description"], $arrayFamily["metal"]);
+            $families[] = new Family($arrayFamily["id"], $arrayFamily["name"], $arrayFamily["description"], $arrayFamily["metal"]);
         }
-        return $Families;
+        return $families;
     }
 
 
@@ -34,7 +34,7 @@ class FamilyManager extends DatabaseManager{
      * @param  int $id
      * @return Family
      */
-    public function selectByID(int $id): Family|false
+    public function selectById(int $id): Family|false
     {
         $request = self::getConnexion()->prepare("SELECT * FROM `Family` WHERE id = :id;");
         $request->execute([
@@ -99,7 +99,7 @@ class FamilyManager extends DatabaseManager{
      * @param  int $id
      * @return bool
      */
-    public function deleteByID(int $id): bool
+    public function deleteById(int $id): bool
     {
         $request = self::getConnexion()->prepare("DELETE FROM `Family` WHERE id = :id;");
         $request->execute([
