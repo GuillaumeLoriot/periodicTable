@@ -1,19 +1,19 @@
 <?php
-$title = "Bienvenue dans le Garage";
-require_once("block/header.php");
+$title = "Tableau périodique";
+require_once __DIR__ . '/../blocks/header.php';
 ?>
 
-<h1 class="text-center">Listes des Voitures</h1>
+<h1 class="text-center">Tableau périodique des éléments</h1>
 <div class="d-flex flex-wrap justify-content-evenly">
-    <?php foreach ($cars as $car): ?>
+    <?php foreach ($elements as $element): ?>
         <div class="col-4 d-flex p-3 justify-content-center">
-            <img src="images/<?= $car->getImage() ?>" alt="<?= $car->getModel() ?>" style="height: 200px; width: auto;">
+            <img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 50px; width: auto;">
             <div class="p-2">
-                <h2><?= $car->getModel() ?></h2>
-                <p><?= $car->getBrand() ?>, <?= $car->getHorsePower() ?> chevaux</p>
+                <h2><?= $element->getChemicalSymbol() ?></h2>
+                <p><?= $element->getName() ?>, <?= $element->getAtomicNumber() ?></p>
             </div>
         </div>
     <?php endforeach; ?>
 </div>
 <?php
-require_once("block/footer.php");
+require_once __DIR__ . '/../blocks/footer.php';

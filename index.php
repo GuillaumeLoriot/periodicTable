@@ -2,82 +2,78 @@
 require __DIR__ . '/vendor/autoload.php';
 
 
-
-
-// Démarrer la session et vérification de la connexion user 
-// session_start();
-// if(isset($_SESSION["username"])){
-//     $isLoggedIn = true;
-// }else{
-//     $isLoggedIn = false; 
+// // Récupérer les paramètres de l'URL
+// if (isset($_GET['action'])) {
+//     $action = $_GET['action'];
+// } else {
+//     $action = 'homePage';
 // }
 
-// Récupérer les paramètres de l'URL et créer des valeurs par défaut
-if (isset($_GET['action'])) {
+// if (isset($_GET['id'])) {
+//     $id = intval($_GET['id']);
+// } else {
+//     $id = null;
+// }
 
-    $action = $_GET['action'];
-    
-} else {
-		
-    $action = 'homePage';
-}
+// var_dump($_GET);
+// var_dump("Login", $isLoggedIn);
+// $indexController = new IndexController();
+// $adminController = new AdminController();
+// $securityController = new SecurityController();
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
-} else {
-    $id = null;
-}
 
-// Gérer les routes avec une suite de conditions if
+if ($action === 'detail' && !is_null($id)) {
 
-//index.php?action=detail&id=12
-if ($action === 'homePage') {
+    echo("page détail élément");
+    // $indexController->detailCar($id);
 
-    $indexController->detailCar($id);
-
-//index.php?action=login
-} elseif ($action === 'detail' && !is_null($id)) {
-
-    $indexController->detailCar($id);
-
-//index.php?action=login
 } elseif ($action === 'login') {
 
-    $securityController->login();
+    echo("page conexion");
+    // $securityController->login();
 
-//index.php?action=register
 } elseif ($action === 'register') {
 
-    $securityController->register();
+    echo("page s'enregistrer");
+    // $securityController->register();
 
-//index.php?action=logout + Connecté
 } elseif ($action === 'logout' && $isLoggedIn) {
     
-    $securityController->logout();
+    echo("page HomePage suite au logout");
+    // $securityController->logout();
 
-//index.php?action=logout + Connecté
-}elseif ($action === 'admin' && $isLoggedIn) {
+} elseif ($action === 'admin' && $isLoggedIn) {
 
-    $adminController->dashboardAdmin();
+    echo("page administrateur (homepage + boutons admin)");
+    // $adminController->dashboardAdmin();
 
-//index.php?action=add + Connecté
 } elseif ($action === 'add' && $isLoggedIn) {
 
-    $adminController->addCar();
-    
-//index.php?action=edit&id=10 + Connecté
-} elseif ($action === 'edit' && !is_null($id) && $isLoggedIn) {
+    echo("page d'ajout d'un élément");
+    // $adminController->addCar();
 
-    $adminController->editCar($id);
+} elseif ($action === 'edit_element' && !is_null($id) && $isLoggedIn && $id > 119) {
 
-//index.php?action=delete&id=10 + Connecté
-} elseif ($action === 'delete' && !is_null($id) && $isLoggedIn) {
+    echo("page de modification d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118");
+    // $adminController->editCar($id);
 
-    $adminController->deleteCar($id);
+} elseif ($action === 'delete_element' && !is_null($id) && $isLoggedIn) {
 
-//Sinon aucune route correspond -> page d'accueil par défaut + Clean url
+    echo("page de supression d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118 (le refaire corectement avec une nouvelle colone bdd plus tard)");
+    // $adminController->deleteCar($id);
+
+} elseif ($action === 'edit_user' && !is_null($id) && $isLoggedIn) {
+
+    echo("page de modification d'un user");
+    // $adminController->deleteCar($id);
+
+} elseif ($action === 'delete_user' && !is_null($id) && $isLoggedIn && $id > 1) {
+
+    echo("page de supression d'un user uniquement si l'id est supérieur à 1(ce qui corespondrai au superadmin)(le refaire corectement avec un role plus tard)");
+    // $adminController->deleteCar($id);
+
 } else {
-
-    header("Location: index.php");
+    echo("homepage");
+    // $indexController->homePage();
 
 }

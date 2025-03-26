@@ -34,11 +34,11 @@ class UserManager extends DatabaseManager{
      * @param  int $id
      * @return User
      */
-    public function selectById(int $id): User|false
+    public function selectByUsername(string $username): User|false
     {
-        $request = self::getConnexion()->prepare("SELECT * FROM `user` WHERE id = :id;");
+        $request = self::getConnexion()->prepare("SELECT * FROM `user` WHERE username = :username;");
         $request->execute([
-            ":id" => $id
+            ":username" => $username
         ]);
 
         $arrayUser = $request->fetch();

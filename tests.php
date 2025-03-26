@@ -1,6 +1,7 @@
 <?php
 
 require_once (__DIR__ . '/vendor/autoload.php');
+require_once ("templates/homePages/index_element.php");
 
 use App\Manager\StateManager;
 use App\Manager\AbundanceManager;
