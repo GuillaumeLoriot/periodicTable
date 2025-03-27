@@ -57,9 +57,14 @@ if ($action === 'detail' && !is_null($id)) {
     echo("page de modification d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118");
     // $adminController->editCar($id);
 
-} elseif ($action === 'delete_element' && !is_null($id) && $isLoggedIn) {
+}elseif ($action === 'delete_element' && !is_null($id) && $isLoggedIn) {
 
     echo("page de supression d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118 (le refaire corectement avec une nouvelle colone bdd plus tard)");
+    // $adminController->deleteCar($id);
+
+} elseif ($action === 'user_profil' && !is_null($id) && $isLoggedIn) {
+
+    echo("page de d'affichage d'un user avec les boutons pour suprimer ou modifier le user");
     // $adminController->deleteCar($id);
 
 } elseif ($action === 'edit_user' && !is_null($id) && $isLoggedIn) {

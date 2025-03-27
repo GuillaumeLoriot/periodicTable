@@ -1,7 +1,8 @@
 <?php
 
 require_once (__DIR__ . '/vendor/autoload.php');
-require_once ("templates/homePages/index_element.php");
+require_once (__DIR__ . '/templates/users/user_profil.php');
+
 
 use App\Manager\StateManager;
 use App\Manager\AbundanceManager;
@@ -37,7 +38,7 @@ dump($testSelectAll);
 $testSelectById = $elementManager-> selectById(102);
 dump($testSelectById);
 
-$testDeleteById = $elementManager-> deleteById(134);
+
 
 
 

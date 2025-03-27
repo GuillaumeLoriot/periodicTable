@@ -86,7 +86,7 @@ class UserManager extends DatabaseManager{
         $request = self::getConnexion()->prepare("UPDATE `user` SET `username` = :username, `name` = :name, `first_name` = :first_name, `mail` = :mail, `password` = :password, `profil_picture` = :profil_picture WHERE id = :id;");
         $request->execute(
             [
-            ":id" => $user,    
+            ":id" => $user->getId(),    
             ":username" =>$user->getUsername(),
             ":name" =>$user->getName(),
             ":first_name" =>$user->getFirstName(),

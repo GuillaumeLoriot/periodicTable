@@ -21,8 +21,8 @@ require_once __DIR__ . '/../blocks/header.php';
                         <h5 class="card-title"><?= $element->getName() ?></h5>
                         <p class="card-text"><?= $element->getChemicalSymbol() ?> - <?= $element->getAtomicMass() ?></p>
                         <div class="d-flex justify-content-between">
-                            <a class="btn btn-primary" href="index.php?action=edit&id=<?= $element->getId() ?>">Modifier</a>
-                            <a class="btn btn-danger" href="index.php?action=delete&id=<?= $element->getId() ?>">Supprimer</a>
+                            <a class="btn btn-primary" href="index.php?action=edit_element&id=<?= $element->getId() ?>">Modifier</a>
+                            <a class="btn btn-danger" href="index.php?action=delete_element&id=<?= $element->getId() ?>">Supprimer</a>
                         </div>
                     </div>
                 </div>
