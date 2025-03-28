@@ -14,9 +14,7 @@ require_once __DIR__ . '/../blocks/header.php';
         <?php foreach ($elements as $element): ?>
             <div class="col-md-4 mb-4 col-sm-6">
                 <div class="card shadow-sm">
-                    <img src="images/<?= $element->getElementPicture() ?>" 
-                         alt="<?= $element->getName() ?>" 
-                         class="card-img-top img-fluid rounded col-md-4 col-sm-6" style="height: 50px; width: auto;">                    
+                <a href="index.php?action=detail_element_admin&id=<?= $element->getId() ?>"><img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 100px; width: auto;"></a>           
                     <div class="card-body">
                         <h5 class="card-title"><?= $element->getName() ?></h5>
                         <p class="card-text"><?= $element->getChemicalSymbol() ?> - <?= $element->getAtomicMass() ?></p>

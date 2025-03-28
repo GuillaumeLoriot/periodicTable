@@ -1,5 +1,5 @@
 <?php
-$title = $element->getName() . " détail";
+$title = $element->getName() . " détail admin";
 require_once __DIR__ . '/../blocks/header.php';
 ?>
 
@@ -38,6 +38,10 @@ require_once __DIR__ . '/../blocks/header.php';
     <div>
         <p>Nom: <?= $element->getAbundance()->getName() ?></p>
         <p>Description: <?= $element->getAbundance()->getDescription() ?></p>
+    </div>
+    <div class="d-flex justify-content-between">
+        <a class="btn btn-primary" href="index.php?action=edit_element&id=<?= $element->getId() ?>">Modifier</a>
+        <a class="btn btn-danger" href="index.php?action=delete_element&id=<?= $element->getId() ?>">Supprimer</a>
     </div>
 </div>
 <?php

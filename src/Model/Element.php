@@ -216,6 +216,11 @@ class Element
         return $this->discoveryDate;
     }
 
+    public function getDiscoveryDateFormat(): string
+    {
+        return date_format($this->discoveryDate,"Y-m-d");
+    }
+
     /**
      * Set the value of discoveryDate
      *
