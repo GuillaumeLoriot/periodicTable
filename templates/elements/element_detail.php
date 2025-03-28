@@ -1,4 +1,5 @@
 <?php
+dump($element);
 $title = $element->getName() . " détail";
 require_once __DIR__ . '/../blocks/header.php';
 ?>

@@ -286,11 +286,11 @@ class Element
      *
      * @return  self
      */
-    public function setState($state): self
+    public function setState($state): State
     {
         $this->state = $state;
 
-        return $this;
+        return $this->state;
     }
 
     /**
@@ -306,11 +306,11 @@ class Element
      *
      * @return  self
      */
-    public function setFamily($family): self
+    public function setFamily($family): Family
     {
         $this->family = $family;
 
-        return $this;
+        return $this->family;
     }
 
     /**
@@ -326,10 +326,10 @@ class Element
      *
      * @return  self
      */
-    public function setAbundance($abundance): self
+    public function setAbundance($abundance): Abundance
     {
         $this->abundance = $abundance;
 
-        return $this;
+        return $this->abundance;
     }
 }

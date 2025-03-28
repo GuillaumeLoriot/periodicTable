@@ -30,6 +30,7 @@ class IndexController
     public function detailElement(int $id)
     {
         //Récuperer les elements
+        dump($id);
         $element = $this->elementManager->selectByID($id);
         if ($element != false) {
             //Afficher les éléments dans la template

@@ -3,7 +3,7 @@ $title = "Ajouter élément";
 require_once __DIR__ . '/../blocks/header.php';
 ?>
 
-<form method="POST" action="index.php?action=register">
+<form method="POST" action="index.php?action=add">
 
     <span class="d-block p-2 text-bg-dark">
 
@@ -159,9 +159,9 @@ require_once __DIR__ . '/../blocks/header.php';
     </select>
 
 
-    <?php if (isset($errors["stateId"])) { ?>
+    <?php if (isset($errors["familyId"])) { ?>
         <p class="text-danger">
-            <?= $errors["stateId"] ?>
+            <?= $errors["familyId"] ?>
         </p>
     <?php } ?>
 
@@ -176,9 +176,9 @@ require_once __DIR__ . '/../blocks/header.php';
         <?php endforeach; ?>
     </select>
 
-    <?php if (isset($errors["stateId"])) { ?>
+    <?php if (isset($errors["abundanceId"])) { ?>
         <p class="text-danger">
-            <?= $errors["stateId"] ?>
+            <?= $errors["abundanceId"] ?>
         </p>
     <?php } ?>
 

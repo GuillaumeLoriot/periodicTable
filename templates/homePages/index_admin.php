@@ -14,14 +14,10 @@ require_once __DIR__ . '/../blocks/header.php';
         <?php foreach ($elements as $element): ?>
             <div class="col-md-4 mb-4 col-sm-6">
                 <div class="card shadow-sm">
-                <a href="index.php?action=detail_element_admin&id=<?= $element->getId() ?>"><img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 100px; width: auto;"></a>           
+                <a href="index.php?action=detail_element_admin&id=<?= $element->getId() ?>"><img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 150px; width: auto;"></a>           
                     <div class="card-body">
                         <h5 class="card-title"><?= $element->getName() ?></h5>
                         <p class="card-text"><?= $element->getChemicalSymbol() ?> - <?= $element->getAtomicMass() ?></p>
-                        <div class="d-flex justify-content-between">
-                            <a class="btn btn-primary" href="index.php?action=edit_element&id=<?= $element->getId() ?>">Modifier</a>
-                            <a class="btn btn-danger" href="index.php?action=delete_element&id=<?= $element->getId() ?>">Supprimer</a>
-                        </div>
                     </div>
                 </div>
             </div>

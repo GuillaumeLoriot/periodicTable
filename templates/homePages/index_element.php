@@ -11,9 +11,12 @@ require_once __DIR__ . '/../blocks/header.php';
             <div class="p-2">
                 <h2><?= $element->getChemicalSymbol() ?></h2>
                 <p><?= $element->getName() ?>, <?= $element->getAtomicNumber() ?></p>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $element->getName() ?></h5>
+                    <p class="card-text"><?= $element->getChemicalSymbol() ?> - <?= $element->getAtomicMass() ?></p>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>
-</div>
-<?php
-require_once __DIR__ . '/../blocks/footer.php';
+    <?php
+    require_once __DIR__ . '/../blocks/footer.php';

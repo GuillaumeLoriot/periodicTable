@@ -80,13 +80,12 @@ class ElementManager extends DatabaseManager
             FROM `element` e 
             INNER JOIN family f ON f.id = e.family_id
             INNER JOIN state s ON s.id = e.state_id
-            INNER JOIN abundance a  ON a.id = e.abundance_id;
-            WHERE e.id = :id"
+            INNER JOIN abundance a  ON a.id = e.abundance_id
+            WHERE e.id = :id;"
         );
         $request->execute([
             ":id" => $id
         ]);
-
         $arrayElement = $request->fetch();
 
         //Si pas de résultat fetch()
@@ -99,7 +98,6 @@ class ElementManager extends DatabaseManager
         $family = new Family($arrayElement["family_id"], $arrayElement["family_name"], $arrayElement["family_description"], $arrayElement["family_metal"]);
         $state = new State($arrayElement["state_id"], $arrayElement["state_name"]);
         $abundance = new Abundance($arrayElement["abundance_id"], $arrayElement["abundance_name"], $arrayElement["abundance_description"]);
-
         //Renvoyer l'instance d'un objet Element avec les données du tableau associatif
         return new Element(
             $arrayElement["id"],
@@ -127,25 +125,25 @@ class ElementManager extends DatabaseManager
      * @return bool
      */
 
-    public function insert(Element $element, State $state, Family $family, Abundance $abundance): bool
+    public function insert(Element $element): bool
     {
         $request = self::getConnexion()->prepare("INSERT INTO `element`(`name`, `atomic_number`, `chemical_symbol`, `atomic_mass`, `group`, `period`, `definition`, `discovery_date`, `element_picture`, `element_model`, `state_id`, `family_id`, `abundance_id`) VALUES (:name, :atomic_number, :chemical_symbol, :atomic_mass, :group, :period, :definition, :discovery_date, :element_picture, :element_model, :state_id, :family_id, :abundance_id);");
-        $request -> execute([
+        $request->execute([
 
-        ":name" => $element->getName(),
-        ":atomic_number"=> $element->getAtomicNumber(),
-        ":chemical_symbol"=>$element->getChemicalSymbol(),
-        ":atomic_mass"=>$element->getAtomicMass(),
-        ":group"=>$element->getGroup(),
-        ":period"=>$element->getPeriod(),
-        ":definition"=>$element->getDefinition(),
-        ":discovery_date"=>$element->getDiscoveryDate(),
-        ":element_picture"=>$element->getElementPicture(),
-        "element_model"=>$element->getElementModel(),
-        ":state_id"=>$state->getId(),
-        ":family_id"=>$family->getId(),
-        ":abundance_id"=>$abundance->getId(),
-      ]);
+            ":name" => $element->getName(),
+            ":atomic_number" => $element->getAtomicNumber(),
+            ":chemical_symbol" => $element->getChemicalSymbol(),
+            ":atomic_mass" => $element->getAtomicMass(),
+            ":group" => $element->getGroup(),
+            ":period" => $element->getPeriod(),
+            ":definition" => $element->getDefinition(),
+            ":discovery_date" => $element->getDiscoveryDateFormat(),
+            ":element_picture" => $element->getElementPicture(),
+            "element_model" => $element->getElementModel(),
+            ":state_id" => $element->getState()->getId(),
+            ":family_id" => $element->getFamily()->getId(),
+            ":abundance_id" => $element->getAbundance()->getId(),
+        ]);
         return $request->rowCount() > 0;
     }
 
@@ -155,30 +153,30 @@ class ElementManager extends DatabaseManager
      * @param  Element $Element
      * @return bool
      */
-    public function update(Element $element, State $state, Family $family, Abundance $abundance): bool
+    public function update(Element $element): bool
     {
         $request = self::getConnexion()->prepare("UPDATE `element` SET `name` = :name, `atomic_number` = :atomic_number,
         `chemical_symbol` = :chemical_symbol, `atomic_mass` = :atomic_mass, `group` = :group, `period` = :period, 
         `definition` = :definition, `discovery_date` = :discovery_date, `element_picture` = :element_picture, 
         `element_model` = :element_model, `state_id` = :state_id, `family_id` = :family_id, `abundance_id` = :abundance_id
         WHERE id = :id;");
-        $request -> execute([
-            
-        ":id" => $element->getId(),
-        ":name" => $element->getName(),
-        ":atomic_number"=> $element->getAtomicNumber(),
-        ":chemical_symbol"=>$element->getChemicalSymbol(),
-        ":atomic_mass"=>$element->getAtomicMass(),
-        ":group"=>$element->getGroup(),
-        ":period"=>$element->getPeriod(),
-        ":definition"=>$element->getDefinition(),
-        ":discovery_date"=>$element->getDiscoveryDate(),
-        ":element_picture"=>$element->getElementPicture(),
-        "element_model"=>$element->getElementModel(),
-        ":state_id"=>$state->getId(),
-        ":family_id"=>$family->getId(),
-        ":abundance_id"=>$abundance->getId(),
-      ]);
+        $request->execute([
+
+            ":id" => $element->getId(),
+            ":name" => $element->getName(),
+            ":atomic_number" => $element->getAtomicNumber(),
+            ":chemical_symbol" => $element->getChemicalSymbol(),
+            ":atomic_mass" => $element->getAtomicMass(),
+            ":group" => $element->getGroup(),
+            ":period" => $element->getPeriod(),
+            ":definition" => $element->getDefinition(),
+            ":discovery_date" => $element->getDiscoveryDateFormat(),
+            ":element_picture" => $element->getElementPicture(),
+            "element_model" => $element->getElementModel(),
+            ":state_id" => $element->getState()->getId(),
+            ":family_id" => $element->getFamily()->getId(),
+            ":abundance_id" => $element->getAbundance()->getId(),
+        ]);
         return $request->rowCount() > 0;
     }
 

@@ -1,9 +1,9 @@
 <?php
-$title = "Ajouter élément";
+$title = "Modifier élément";
 require_once __DIR__ . '/../blocks/header.php';
 ?>
 
-<form method="POST" action="index.php?action=register">
+<form method="POST" action="index.php?action=edit_element&id=<?= $element->getId(); ?>">
 
     <span class="d-block p-2 text-bg-dark">
 
