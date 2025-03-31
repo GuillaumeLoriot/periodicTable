@@ -38,4 +38,17 @@ class IndexController
             $this->homePage();
         }
     }
+
+     // Route search_element -> URL: index.php?action=detail&id=10 
+     public function searchElement(int $name)
+     {
+         //Récuperer les elements
+         $element = $this->elementManager->selectByName($name);
+         if ($element != false) {
+             //Afficher les éléments dans la template
+             require_once("./templates/elements/element_detail.php");
+         } else {
+             $this->homePage();
+         }
+     }
 }

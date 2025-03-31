@@ -195,4 +195,65 @@ class ElementManager extends DatabaseManager
 
         return $request->rowCount() > 0;
     }
+
+    /**
+     * Récupère une ligne de la table Element par name
+     * @param  int $id
+     * @return Element
+     */
+    public function selectByName(string $name): array|false
+    {
+        $request = self::getConnexion()->prepare(
+            "SELECT e.id, e.name, e.atomic_number, e.chemical_symbol, e.atomic_mass, e.`group`, e.period, e.definition, e.discovery_date, 
+        e.element_picture, e.element_model, f.id family_id, f.name family_name, f.description family_description, f.`metal` family_metal, 
+        s.id state_id, s.name state_name,a.id abundance_id, a.name abundance_name, a.description abundance_description
+            FROM `element` e 
+            INNER JOIN family f ON f.id = e.family_id
+            INNER JOIN state s ON s.id = e.state_id
+            INNER JOIN abundance a  ON a.id = e.abundance_id
+            WHERE e.name LIKE %:name%;"
+        );
+        $request->execute([
+            ":name" => $name
+        ]);
+        $arrayElements = $request->fetchAll();
+        //Créer un tableau qui contiendra les objets Element
+
+        //Si pas de résultat fetchall()
+        if (!$arrayElements) {
+
+            return false;
+        }
+
+        $elements = [];
+        //Boucle sur le tableau $arrayElements pour créer les objets Element 
+        // Chaque élément du tableau $arrayElements est un tableau associatif
+        foreach ($arrayElements as $arrayElement) {
+            // Istantiation d'un objet family, state abundance et discoveryDate pour chaque objet Element
+            $discoveryDate = new DateTime($arrayElement["discovery_date"]);
+            $family = new Family($arrayElement["family_id"], $arrayElement["family_name"], $arrayElement["family_description"], $arrayElement["family_metal"]);
+            $state = new State($arrayElement["state_id"], $arrayElement["state_name"]);
+            $abundance = new Abundance($arrayElement["abundance_id"], $arrayElement["abundance_name"], $arrayElement["abundance_description"]);
+
+            //Istantiation d'un objet Elements, avec les données du tableau associatif  
+            $elements[] = new Element(
+                $arrayElement["id"],
+                $arrayElement["name"],
+                $arrayElement["atomic_number"],
+                $arrayElement["chemical_symbol"],
+                $arrayElement["atomic_mass"],
+                $arrayElement["group"],
+                $arrayElement["period"],
+                $arrayElement["definition"],
+                $discoveryDate,
+                $arrayElement["element_picture"],
+                $arrayElement["element_model"],
+                $state,
+                $family,
+                $abundance
+
+            );
+        }
+        return $elements;
+    }
 }

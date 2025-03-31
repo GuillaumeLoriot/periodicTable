@@ -68,6 +68,11 @@ if ($action === 'detail_element' && !is_null($id)) {
     echo ("page de supression d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118 (le refaire corectement avec une nouvelle colone bdd plus tard)");
     $adminController->deleteElement($id);
 
+} elseif ($action === 'search_element' && !is_null($id)) {
+
+    echo ("homepage avec résultat de recherche afiché");
+    // $indexController->detailElement($id);
+
 } elseif ($action === 'user_profil' && !is_null($id) && $isLoggedIn) {
 
     echo ("page de d'affichage d'un user avec les boutons pour suprimer ou modifier le user");
@@ -84,6 +89,6 @@ if ($action === 'detail_element' && !is_null($id)) {
     // $adminController->deleteUser($id);
 
 } else {
-    
+
     $indexController->homePage();
 }

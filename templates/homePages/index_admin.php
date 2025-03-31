@@ -23,7 +23,7 @@ require_once __DIR__ . '/../blocks/header.php';
                 <p><?= $element->getName(); ?></p>
                 <h2><?= $element->getChemicalSymbol() ?></h2>
                 <div>
-                    <p class="atomiNumber"><?= $element->getAtomicNumber(); ?></p>
+                    <p class="atomicNumber"><?= $element->getAtomicNumber(); ?></p>
                     <p class="atomicMass"><?= $element->getAtomicMass(); ?></p>
                 </div>
             </a>

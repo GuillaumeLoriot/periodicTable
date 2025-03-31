@@ -1,7 +1,8 @@
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 color: rgba(245, 245, 245, 0.9);
-
+background-image: url("Images/background3.jpg");
+background-size: cover;
 #detailCard{
     display: flex;
     flex-direction: column;
@@ -175,7 +176,7 @@ color: rgba(245, 245, 245, 0.9);
     }
 }
 
-    background-image: url("Images/background.png");
+    
     h1 {
         text-align: center;
         font-size: 2rem;
@@ -227,15 +228,15 @@ color: rgba(245, 245, 245, 0.9);
         
        
 
-        li{
-          a{
-            text-decoration: none;
-            color: rgba(245, 245, 245, 0.9);
-            
-          }
+        li{        
             list-style: none;
             text-align: center;
             box-shadow: 2px 2px 4px gray;        
+            a{
+            text-decoration: none;
+            color: rgba(245, 245, 245, 0.9);
+            }  
+        }
             
             
             h2{
@@ -251,7 +252,7 @@ color: rgba(245, 245, 245, 0.9);
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
-                .atomiNumber{
+                .atomicNumber{
                     margin: 0.1rem 0 0.4rem 0.4rem;
                     font-size: 1rem;
                     height: 1rem;
@@ -426,13 +427,19 @@ color: rgba(245, 245, 245, 0.9);
             
             /* states */
                         .solide:hover{
-                            color:rgb(1, 1, 1);
+                            a{
+                                color:rgb(1, 1, 1) !important;
+                            }
                         }
                         .liquide:hover{
-                            color:rgb(19, 4, 135);
+                            a{
+                                color:rgb(19, 4, 135) !important;
+                            }
                         }
                         .gaz:hover{
-                            color:rgb(165, 3, 3);
+                            a{
+                                color:rgb(165, 3, 3) !important;
+                            }
                             
                         }
             
@@ -576,7 +583,7 @@ color: rgba(245, 245, 245, 0.9);
                      &.alcalinLegend{
                          background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,145,219,0.7) 100%);;                          
                          border-color: #3B91DB;
-                         box-shadow: 2px 2px 4px #3b90dbc9;                
+                         box-shadow: 2px 2px 4px #3b90dbc9;               
                      }         
                      &.alcalino-terreuxLegend{
                          background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(65,51,190,0.7) 100%);
@@ -705,7 +712,7 @@ color: rgba(245, 245, 245, 0.9);
      
 }
 
-}
+
 
 
 

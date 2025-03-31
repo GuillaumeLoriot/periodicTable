@@ -15,7 +15,6 @@ require_once __DIR__ . '/../blocks/header.php';
     <a id="addButton" href="index.php?action=add">Ajouter</a>
 </div>
 
-
 <ul id="periodicTable">
     <?php foreach ($elements as $element): ?>
         <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= $element->getState()->getName(); ?> <?= $element->getFamily()->getName(); ?> <?= $element->getAbundance()->getName(); ?>">
@@ -23,7 +22,7 @@ require_once __DIR__ . '/../blocks/header.php';
                 <p><?= $element->getName(); ?></p>
                 <h2><?= $element->getChemicalSymbol() ?></h2>
                 <div>
-                    <p class="atomiNumber"><?= $element->getAtomicNumber(); ?></p>
+                    <p class="atomicNumber"><?= $element->getAtomicNumber(); ?></p>
                     <p class="atomicMass"><?= $element->getAtomicMass(); ?></p>
                 </div>
             </a>
