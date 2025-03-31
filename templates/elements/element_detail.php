@@ -1,44 +1,56 @@
 <?php
-dump($element);
 $title = $element->getName() . " détail";
 require_once __DIR__ . '/../blocks/header.php';
 ?>
 
 <h1 class="text-center">Détail de l'élément <?= $element->getName() ?></h1>
-<div>
-    <img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 200px; width: auto;">
-    <h3>Modèle schématique</h3>
-    <img src="images/atomes/<?= $element->getElementModel() ?>" alt="<?= $element->getName() ?>" style="height: 200px; width: auto;">
-    <h2>--Elément--</h2>
-    <div>
-        <p>Nom: <?= $element->getName() ?></p>
-        <p>Numéro atomic: <?= $element->getAtomicNumber() ?></p>
-        <p>Symbole chimique: <?= $element->getChemicalSymbol() ?></p>
-        <p>Masse atomique: <?= $element->getAtomicMass() ?></p>
-        <p>Group: <?= $element->getGroup() ?></p>
-        <p>Période: <?= $element->getPeriod() ?></p>
-        <p>Définition: <?= $element->getDefinition() ?></p>
-        <p>Date de découverte: <?= $element->getDiscoveryDateFormat() ?></p>
-        <p>Etat: <?= $element->getState()->getName() ?></p>
-        <p>Famille: <?= $element->getFamily()->getName() ?></p>
-        <p>Abondance: <?= $element->getabundance()->getName() ?></p>
+<div id="detailCard">
+    <div class="card">
+        <div id="elementImage">
+            <h2>--Elément--</h2>
+            <img src="images/<?= $element->getElementPicture() ?>" alt="<?= $element->getName() ?>" style="height: 200px; width: auto;">          
+        </div>
+        <div id="elementInfo">
+            <div id="elementText">
+                <p><span>Nom:  </span><?= $element->getName() ?></p>
+                <p><span>Numéro atomic:  </span><?= $element->getAtomicNumber() ?></p>
+                <p><span>Symbole chimique:  </span><?= $element->getChemicalSymbol() ?></p>
+                <p><span>Masse atomique:  </span><?= $element->getAtomicMass() ?></p>
+                <p><span>Group:  </span><?= $element->getGroup() ?></p>
+                <p><span>Période:  </span><?= $element->getPeriod() ?></p>
+                <p><span>Définition:  </span><?= $element->getDefinition() ?></p>
+                <p><span>Date de découverte:  </span><?= $element->getDiscoveryDateFormat() ?></p>
+                <p><span>Etat:  </span><?= $element->getState()->getName() ?></p>
+                <p><span>Famille:  </span><?= $element->getFamily()->getName() ?></p>
+                <p><span>Abondance:  </span><?= $element->getabundance()->getName() ?></p>
+            </div>
+            <div id="modelImage">
+                <img src="images/atomes/<?= $element->getElementModel() ?>" alt="<?= $element->getName() ?>" style="height: 350px; width: auto;">
+            </div>
+        </div>
     </div>
-    <h2>--Famille--</h2>
-    <div>
-        <p>Nom: <?= $element->getFamily()->getName() ?></p>
-        <p>Description: <?= $element->getFamily()->getDescription() ?></p>
-        <p>Est-ce un métal? <?php echo ($element->getFamily()->getMetal() ? "oui" : "non"); ?></p>
-
-    </div>
-    <h2>--Etat--</h2>
-    <div>
-        <p>Nom: <?= $element->getState()->getName() ?></p>
-
-    </div>
-    <h2>--Abondance--</h2>
-    <div>
-        <p>Nom: <?= $element->getAbundance()->getName() ?></p>
-        <p>Description: <?= $element->getAbundance()->getDescription() ?></p>
+    <div id="sfaCard">
+        <div class="card">
+            <h2>--Famille--</h2>
+            <div>
+                <p><span>Nom:  </span> <?= $element->getFamily()->getName() ?></p>
+                <p><span>Description:  </span><?= $element->getFamily()->getDescription() ?></p>
+                <p><span>Est-ce un métal?  </span><?php echo ($element->getFamily()->getMetal() ? "oui" : "non"); ?></p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>--Etat--</h2>
+            <div>
+                <p><span>Nom:  </span> <?= $element->getState()->getName() ?></p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>--Abondance--</h2>
+            <div>
+                <p><span>Nom:  </span> <?= $element->getAbundance()->getName() ?></p>
+                <p><span>Description:  </span> <?= $element->getAbundance()->getDescription() ?></p>
+            </div>
+        </div>
     </div>
 </div>
 <?php

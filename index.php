@@ -26,12 +26,12 @@ $adminController = new AdminController();
 
 if ($action === 'detail_element' && !is_null($id)) {
 
-    echo ("page détail élément");
+    // echo ("page détail élément");
     $indexController->detailElement($id);
 
 } elseif ($action === 'detail_element_admin' && !is_null($id)) {
 
-    echo ("page détail élément administrateur");
+    // echo ("page détail élément administrateur");
     $adminController->detailElementAdmin($id);
 
 } elseif ($action === 'login') {
@@ -51,11 +51,11 @@ if ($action === 'detail_element' && !is_null($id)) {
 
 } elseif ($action === 'admin' && $isLoggedIn) {
 
-    echo ("page administrateur (homepage + boutons admin)");
     $adminController->dashboardAdmin();
+
 } elseif ($action === 'add' && $isLoggedIn) {
 
-    echo ("page d'ajout d'un élément");
+    // echo ("page d'ajout d'un élément");
     $adminController->addElement();
 
 } elseif ($action === 'edit_element' && !is_null($id) && $isLoggedIn && $id > 119) {
@@ -71,19 +71,19 @@ if ($action === 'detail_element' && !is_null($id)) {
 } elseif ($action === 'user_profil' && !is_null($id) && $isLoggedIn) {
 
     echo ("page de d'affichage d'un user avec les boutons pour suprimer ou modifier le user");
-    // $adminController->deleteCar($id);
+    // $adminController->profil($id);
 
 } elseif ($action === 'edit_user' && !is_null($id) && $isLoggedIn) {
 
     echo ("page de modification d'un user");
-    // $adminController->deleteCar($id);
+    // $adminController->deleteUser($id);
 
 } elseif ($action === 'delete_user' && !is_null($id) && $isLoggedIn && $id > 1) {
 
     echo ("page de supression d'un user uniquement si l'id est supérieur à 1(ce qui corespondrai au superadmin)(le refaire corectement avec un role plus tard)");
-    // $adminController->deleteCar($id);
+    // $adminController->deleteUser($id);
 
 } else {
-    echo ("homepage");
+    
     $indexController->homePage();
 }

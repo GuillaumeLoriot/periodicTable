@@ -1,0 +1,717 @@
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+color: rgba(245, 245, 245, 0.9);
+
+#detailCard{
+    display: flex;
+    flex-direction: column;
+    .card{
+        background: transparent;
+        width: 80%;
+        margin: 2rem;
+        border: solid 2px rgba(245, 245, 245, 0.9);
+        border-radius: 4px;
+        box-shadow: 2px 2px 4px gray; 
+        h2{
+            color: rgba(245, 245, 245, 0.9);
+            margin: 2rem;
+        }
+        p{
+            color: rgba(245, 245, 245, 0.9);
+            span{
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+        #elementImage{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img{
+                border: solid 2px rgba(245, 245, 245, 0.9);
+                border-radius: 4px;
+                box-shadow: 2px 2px 4px gray;   
+            }
+               
+        }
+        #elementInfo{
+            display: flex;
+
+            justify-content: space-between;
+            width: 100%;
+            padding: 1rem;
+            #elementText{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 50%;
+                span{
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+            }
+            #modelImage{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+
+            }
+
+        }
+
+    }
+    #sfaCard{
+        display: flex;
+        justify-content: space-around;
+        .card{
+            background: transparent;
+            width: 25%;
+            border: solid 2px rgba(245, 245, 245, 0.9);
+            border-radius: 4px;
+            box-shadow: 2px 2px 4px gray;
+            &:hover{
+                transform: scale(1.15);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: center;
+            } 
+            div{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;                
+                height: 18rem;
+                padding: 1rem;
+            }            
+        }
+    }  
+ 
+    .delModButtons{
+        text-decoration: none;
+        background: transparent;
+        margin: 2rem auto;
+        padding: 0.6rem;
+        width: 100%;
+        a{
+            text-decoration: none;
+        }
+
+        
+        .modify{
+            font-weight: 650;
+            font-size: 1.2em;
+            text-decoration: none;
+            color:rgba(245, 245, 245, 0.9);
+            background: transparent;
+            border: solid 2px rgba(245, 245, 245, 0.9);
+            border-radius: 4px;
+            margin: auto;
+            padding: 0.6rem;
+            box-shadow: 2px 2px 4px gray; 
+
+            &:hover{
+
+                display: inline-block;
+                border-color: rgba(20, 2, 214, 0.7);
+                background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(20, 2, 214, 0.7) 100%);
+                box-shadow: 2px 2px 4px rgba(20, 2, 214, 0.7); 
+                transform: scale(1.15);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: center;            
+            }
+
+        }
+        .delete{
+            font-weight: 650;
+            font-size: 1.2em;
+            text-decoration: none;
+            color:rgba(245, 245, 245, 0.9);
+            background: transparent;
+            border: solid 2px rgba(245, 245, 245, 0.9);
+            border-radius: 4px;
+            margin: auto;
+            padding: 0.6rem;
+            box-shadow: 2px 2px 4px gray; 
+
+            &:hover{
+
+                display: inline-block;
+                border-color: rgba(219, 3, 3, 0.7);
+                background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(219, 3, 3, 0.7) 100%);
+                box-shadow: 2px 2px 4px rgba(219, 3, 3, 0.7); 
+                transform: scale(1.15);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: center;            
+            }
+
+        }
+    }
+
+}    
+
+
+#searchBar{
+    margin: 4rem;
+    display: flex;
+    justify-content: center;
+
+    input{
+        width: 30rem;
+        height: 2.2rem;
+        background: transparent;
+        color: rgba(245, 245, 245, 0.9);
+        border: solid 1px rgba(245, 245, 245, 0.9);
+        border-radius: 7px;
+        margin: 0.2rem;
+        box-shadow: 2px 2px 4px gray; 
+        &#searchButton{
+            width: 4.5rem;
+            height: 2.2rem;
+            background: rgba(245, 245, 245, 0.3);
+        }
+        &#searchButton:hover{
+            transform: scale(1.15);
+        }
+    }
+}
+
+    background-image: url("Images/background.png");
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 3rem;
+    }
+
+    #button{
+        height: 3.5rem;
+        width: 6rem;
+        display: flex;
+        justify-content: center;
+        padding-left: 0.5rem;
+
+        #addButton{
+            font-weight: 650;
+            font-size: 1.2em;
+            text-decoration: none;
+            color:rgba(245, 245, 245, 0.9);
+            background: transparent;
+            border: solid 2px rgba(245, 245, 245, 0.9);
+            border-radius: 4px;
+            margin: auto;
+            padding: 0.6rem;
+            box-shadow: 2px 2px 4px gray;  
+
+            &:hover{
+
+                display: inline-block;
+                border-color: rgba(9, 199, 40, 0.7);
+                background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(9, 199, 40, 0.7) 100%);
+                box-shadow: 2px 2px 4px rgba(9, 199, 40, 0.7); 
+                transform: scale(1.15);
+                transition: transform 0.3s ease-in-out;
+                transform-origin: center;            
+            }
+        }
+    }
+
+    #periodicTable {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr) 15px repeat(15, 1fr);
+        grid-template-rows: repeat(7, 0.1fr) 20px repeat(5, 0.1fr);
+        grid-column-gap: 9px;
+        grid-row-gap: 9px;
+        padding: 0;
+        margin: 1rem 0.5rem 1rem ;
+        transform: scale(0.8);
+        
+       
+
+        li{
+          a{
+            text-decoration: none;
+            color: rgba(245, 245, 245, 0.9);
+            
+          }
+            list-style: none;
+            text-align: center;
+            box-shadow: 2px 2px 4px gray;        
+            
+            
+            h2{
+                margin: 0 0 0.1rem ;
+                font-size: 1.7rem;
+                height: 1.8rem;
+            }
+            p{
+                margin: 0.2rem 0 0;
+                font-size: 0.5rem;
+            }
+            div{
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+                .atomiNumber{
+                    margin: 0.1rem 0 0.4rem 0.4rem;
+                    font-size: 1rem;
+                    height: 1rem;
+                }
+                .atomicMass{
+                    margin: 0.1rem 0.4rem 0.4rem 0;
+                    font-size: 0.4rem;
+                    height: 0.4rem;
+                }
+            }
+        }
+        li:hover{
+            background: rgba(245, 245, 245, 0.3);
+            transform: scale(1.14);
+            transition: transform 0.3s ease-in-out;
+
+        }
+        
+            
+            #element1 { grid-area: 1 / 1 / 2 / 2; animation: blink 2s infinite;}
+            #element2 { grid-area: 1 / 19 / 2 / 20; }
+            #element3 { grid-area: 2 / 1 / 3 / 2; }
+            #element4 { grid-area: 2 / 2 / 3 / 3; }
+            #element5 { grid-area: 2 / 14 / 3 / 15; }
+            #element6 { grid-area: 2 / 15 / 3 / 16; }
+            #element7 { grid-area: 2 / 16 / 3 / 17; }
+            #element8 { grid-area: 2 / 17 / 3 / 18; }
+            #element9 { grid-area: 2 / 18 / 3 / 19; }
+            #element10 { grid-area: 2 / 19 / 3 / 20; }
+            #element11 { grid-area: 3 / 1 / 4 / 2; }
+            #element12 { grid-area: 3 / 2 / 4 / 3; }
+            #element13 { grid-area: 3 / 14 / 4 / 15; }
+            #element14 { grid-area: 3 / 15 / 4 / 16; }
+            #element15 { grid-area: 3 / 16 / 4 / 17; }
+            #element16 { grid-area: 3 / 17 / 4 / 18; }
+            #element17 { grid-area: 3 / 18 / 4 / 19; }
+            #element18 { grid-area: 3 / 19 / 4 / 20; }
+            #element19 { grid-area: 4 / 1 / 5 / 2; }
+            #element20 { grid-area: 4 / 2 / 5 / 3; }
+            #element21 { grid-area: 4 / 3 / 5 / 4; }
+            #element22 { grid-area: 4 / 5 / 5 / 6; }
+            #element23 { grid-area: 4 / 6 / 5 / 7; }
+            #element24 { grid-area: 4 / 7 / 5 / 8; }
+            #element25 { grid-area: 4 / 8 / 5 / 9; }
+            #element26 { grid-area: 4 / 9 / 5 / 10; }
+            #element27 { grid-area: 4 / 10 / 5 / 11; }
+            #element28 { grid-area: 4 / 11 / 5 / 12; }
+            #element29 { grid-area: 4 / 12 / 5 / 13; }
+            #element30 { grid-area: 4 / 13 / 5 / 14; }
+            #element31 { grid-area: 4 / 14 / 5 / 15; }
+            #element32 { grid-area: 4 / 15 / 5 / 16; }
+            #element33 { grid-area: 4 / 16 / 5 / 17; }
+            #element34 { grid-area: 4 / 17 / 5 / 18; }
+            #element35 { grid-area: 4 / 18 / 5 / 19; }
+            #element36 { grid-area: 4 / 19 / 5 / 20; }
+            #element37 { grid-area: 5 / 1 / 6 / 2; }
+            #element38 { grid-area: 5 / 2 / 6 / 3; }
+            #element39 { grid-area: 5 / 3 / 6 / 4; }
+            #element40 { grid-area: 5 / 5 / 6 / 6; }
+            #element41 { grid-area: 5 / 6 / 6 / 7; }
+            #element42 { grid-area: 5 / 7 / 6 / 8; }
+            #element43 { grid-area: 5 / 8 / 6 / 9; }
+            #element44 { grid-area: 5 / 9 / 6 / 10; }
+            #element45 { grid-area: 5 / 10 / 6 / 11; }
+            #element46 { grid-area: 5 / 11 / 6 / 12; }
+            #element47 { grid-area: 5 / 12 / 6 / 13; }
+            #element48 { grid-area: 5 / 13 / 6 / 14; }
+            #element49 { grid-area: 5 / 14 / 6 / 15; }
+            #element50 { grid-area: 5 / 15 / 6 / 16; }
+            #element51 { grid-area: 5 / 16 / 6 / 17; }
+            #element52 { grid-area: 5 / 17 / 6 / 18; }
+            #element53 { grid-area: 5 / 18 / 6 / 19; }
+            #element54 { grid-area: 5 / 19 / 6 / 20; }
+            #element55 { grid-area: 6 / 1 / 7 / 2; }
+            #element56 { grid-area: 6 / 2 / 7 / 3; }
+            #element57 { grid-area: 6 / 3 / 7 / 4; }
+            #element58 { grid-area: 9 / 5 / 10 / 6; }
+            #element59 { grid-area: 9 / 6 / 10 / 7; }
+            #element60 { grid-area: 9 / 7 / 10 / 8; }
+            #element61 { grid-area: 9 / 8 / 10 / 9; }
+            #element62 { grid-area: 9 / 9 / 10 / 10; }
+            #element63 { grid-area: 9 / 10 / 10 / 11; }
+            #element64 { grid-area: 9 / 11 / 10 / 12; }
+            #element65 { grid-area: 9 / 12 / 10 / 13; }
+            #element66 { grid-area: 9 / 13 / 10 / 14; }
+            #element67 { grid-area: 9 / 14 / 10 / 15; }
+            #element68 { grid-area: 9 / 15 / 10 / 16; }
+            #element69 { grid-area: 9 / 16 / 10 / 17; }
+            #element70 { grid-area: 9 / 17 / 10 / 18; }
+            #element71 { grid-area: 9 / 18 / 10 / 19; }
+            #element72 { grid-area: 6 / 5 / 7 / 6; }
+            #element73 { grid-area: 6 / 6 / 7 / 7; }
+            #element74 { grid-area: 6 / 7 / 7 / 8; }
+            #element75 { grid-area: 6 / 8 / 7 / 9; }
+            #element76 { grid-area: 6 / 9 / 7 / 10; }
+            #element77 { grid-area: 6 / 10 / 7 / 11; }
+            #element78 { grid-area: 6 / 11 / 7 / 12; }
+            #element79 { grid-area: 6 / 12 / 7 / 13; }
+            #element80 { grid-area: 6 / 13 / 7 / 14; }
+            #element81 { grid-area: 6 / 14 / 7 / 15; }
+            #element82 { grid-area: 6 / 15 / 7 / 16; }
+            #element83 { grid-area: 6 / 16 / 7 / 17; }
+            #element84 { grid-area: 6 / 17 / 7 / 18; }
+            #element85 { grid-area: 6 / 18 / 7 / 19; }
+            #element86 { grid-area: 6 / 19 / 7 / 20; }
+            #element87 { grid-area: 7 / 1 / 8 / 2; }
+            #element88 { grid-area: 7 / 2 / 8 / 3; }
+            #element89 { grid-area: 7 / 3 / 8 / 4; }
+            #element90 { grid-area: 10 / 5 / 11 / 6; }
+            #element91 { grid-area: 10 / 6 / 11 / 7; }
+            #element92 { grid-area: 10 / 7 / 11 / 8; }
+            #element93 { grid-area: 10 / 8 / 11 / 9; }
+            #element94 { grid-area: 10 / 9 / 11 / 10; }
+            #element95 { grid-area: 10 / 10 / 11 / 11; }
+            #element96 { grid-area: 10 / 11 / 11 / 12; }
+            #element97 { grid-area: 10 / 12 / 11 / 13; }
+            #element98 { grid-area: 10 / 13 / 11 / 14; }
+            #element99 { grid-area: 10 / 14 / 11 / 15; }
+            #element100 { grid-area: 10 / 15 / 11 / 16; }
+            #element101 { grid-area: 10 / 16 / 11 / 17; }
+            #element102 { grid-area: 10 / 17 / 11 / 18; }
+            #element103 { grid-area: 10 / 18 / 11 / 19; }
+            #element104 { grid-area: 7 / 5 / 8 / 6; }
+            #element105 { grid-area: 7 / 6 / 8 / 7; }
+            #element106 { grid-area: 7 / 7 / 8 / 8; }
+            #element107 { grid-area: 7 / 8 / 8 / 9; }
+            #element108 { grid-area: 7 / 9 / 8 / 10; }
+            #element109 { grid-area: 7 / 10 / 8 / 11; }
+            #element110 { grid-area: 7 / 11 / 8 / 12; }
+            #element111 { grid-area: 7 / 12 / 8 / 13; }
+            #element112 { grid-area: 7 / 13 / 8 / 14; }
+            #element113 { grid-area: 7 / 14 / 8 / 15; }
+            #element114 { grid-area: 7 / 15 / 8 / 16; }
+            #element115 { grid-area: 7 / 16 / 8 / 17; }
+            #element116 { grid-area: 7 / 17 / 8 / 18; }
+            #element117 { grid-area: 7 / 18 / 8 / 19; }
+            #element118 { grid-area: 7 / 19 / 8 / 20; }
+            #element119 { grid-area: 12 / 5 / 13 / 6; }
+            #element120 { grid-area: 12 / 6 / 13 / 7; }
+            #element121 { grid-area: 12 / 7 / 13 / 8; }
+            #element122 { grid-area: 12 / 8 / 13 / 9; }
+            #element123 { grid-area: 12 / 9 / 13 / 10; }
+            #element124 { grid-area: 12 / 10 / 13 / 11; }
+            #element125 { grid-area: 12 / 11 / 13 / 12; }
+            #element126 { grid-area: 12 / 12 / 13 / 13; }
+            #element127 { grid-area: 12 / 13 / 13 / 14; }
+            #element128 { grid-area: 12 / 14 / 13 / 15; }
+            #element129 { grid-area: 12 / 15 / 13 / 16; }
+            #element130 { grid-area: 12 / 16 / 13 / 17; }
+            #element131 { grid-area: 12 / 17 / 13 / 18; }
+            #element132 { grid-area: 12 / 18 / 13 / 19; }
+            #element133 { grid-area: 13 / 5 / 14 / 6; }
+            #element134 { grid-area: 13 / 6 / 14 / 7; }
+            #element135 { grid-area: 13 / 7 / 14 / 8; }
+            #element136 { grid-area: 13 / 8 / 14 / 9; }
+            #element137 { grid-area: 13 / 9 / 14 / 10; }
+            #element138 { grid-area: 13 / 10 / 14 / 11; }
+            #element139 { grid-area: 13 / 11 / 14 / 12; }
+            #element140 { grid-area: 13 / 12 / 14 / 13; }
+            #element141 { grid-area: 13 / 13 / 14 / 14; }
+            #element142 { grid-area: 13 / 14 / 14 / 15; }
+            #element143 { grid-area: 13 / 15 / 14 / 16; }
+            #element144 { grid-area: 13 / 16 / 14 / 17; }
+            #element145 { grid-area: 13 / 17 / 14 / 18; }
+            #element146 { grid-area: 13 / 18 / 14 / 19; } 
+
+              
+            
+            
+            
+            /* chaque classe présente dans cette liste représente respectivement les objets state, family et abundance de mon php */
+            
+            /* states */
+                        .solide:hover{
+                            color:rgb(1, 1, 1);
+                        }
+                        .liquide:hover{
+                            color:rgb(19, 4, 135);
+                        }
+                        .gaz:hover{
+                            color:rgb(165, 3, 3);
+                            
+                        }
+            
+            /* abundances */
+                        .primordial{
+                            border: solid 2px rgba(245, 245, 245, 0.9);
+                            border-radius: 4px;
+                        }
+                        .residuel{
+                            border: dashed 2px rgba(245, 245, 245, 0.9);
+                            border-radius: 4px;
+                        }
+                        .synthetique{
+                            border: dotted 2px rgba(245, 245, 245, 0.9);
+                            border-radius: 4px;
+                        }
+            
+            /* families */
+                        .alcalin,.alcalino-terreux,.lanthanides,.actinides,.metal-de-transition,.metal-pauvre,.metalloïde,.autre-non-metal,.halogene,.gaz-noble,.non-classe{
+                            background: transparent;
+                        }
+                       
+                        .alcalin:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,145,219,0.7) 100%);;
+                            
+                            border-color: #3B91DB;
+                            box-shadow: 2px 2px 4px #3b90dbc9;                
+                        }
+            
+                        .alcalino-terreux:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(65,51,190,0.7) 100%);
+                            border-color: #4133BE;
+                            box-shadow: 2px 2px 4px #4133bec8;
+                        }
+            
+            
+                        .lanthanides:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,94,219,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #3B5EDB;
+                        }
+            
+            
+                        .actinides:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,195,219,0.7) 100%);
+                            transform: scale(1.12);
+                            border-color: #3BC3DB;
+                        }
+            
+            
+                        .metal-de-transition:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(60,28,103,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #3C1C67;
+                        }
+            
+            
+                        .metal-pauvre:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(114,137,219,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #7289DB;
+                        }
+            
+            
+                        .metalloïde:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(169,180,219,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #A9B4DB;
+                        }
+            
+            
+                        .autre-non-metal:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,110,135,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #516E87;
+                        }
+            
+            
+                        .halogene:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(104,98,163,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #6862A3;
+                        }
+            
+            
+                        .gaz-noble:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,127,135,0.7) 100%);;
+                            transform: scale(1.12);
+                            border-color: #517F87;
+                        }
+            
+            
+                        .non-classe:hover{
+                            background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(105,81,135,0.7) 100%);
+                            transform: scale(1.12);
+                            border-color: #695187;
+         
+                        }
+        }
+ 
+
+/* legend */
+
+    div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .legendTitle{     
+            font-size: 1.5rem;
+            font-weight: 400;
+            width: 10rem;
+            height: 1rem;
+            margin-left: 1rem;
+        }
+        h3{
+            font-size: 0.7rem;
+            font-weight: 600;
+        } 
+
+/* families */
+
+    #familyLegend{
+
+                    /* families */
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                
+                 li{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    list-style: none;
+                    text-align: center;
+                    border: solid 2px ;
+                    border-radius: 4px;
+                    width: 4rem;
+                    height: 4rem;
+                    margin: 0.5rem;                  
+
+                     &.alcalinLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,145,219,0.7) 100%);;                          
+                         border-color: #3B91DB;
+                         box-shadow: 2px 2px 4px #3b90dbc9;                
+                     }         
+                     &.alcalino-terreuxLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(65,51,190,0.7) 100%);
+                         border-color: #4133BE;
+                         box-shadow: 2px 2px 4px #4133bec8;
+                     }
+                     &.lanthanidesLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,94,219,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #3B5EDB;
+                     }         
+                     &.actinidesLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,195,219,0.7) 100%);
+                         transform: scale(1.12);
+                         border-color: #3BC3DB;
+                     }       
+                     &.metal-de-transitionLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(60,28,103,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #3C1C67;
+                     }      
+                     &.metal-pauvreLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(114,137,219,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #7289DB;
+                     }          
+                     &.metalloïdeLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(169,180,219,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #A9B4DB;
+                     }          
+                     &.autre-non-metalLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,110,135,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #516E87;
+                     }           
+                     &.halogeneLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(104,98,163,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #6862A3;
+                     }           
+                     &.gaz-nobleLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,127,135,0.7) 100%);;
+                         transform: scale(1.12);
+                         border-color: #517F87;
+                     }           
+                     &.non-classeLegend{
+                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(105,81,135,0.7) 100%);
+                         transform: scale(1.12);
+                         border-color: #695187;
+                     }
+                 }  
+
+    }
+
+/* states */
+
+    #stateLegend{
+   
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    
+     li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        text-align: center;
+        background-color: rgba(214,214,214,0.3);
+        border: solid 2px rgba(245, 245, 245, 0.9);
+        border-radius: 4px;
+        width: 4rem;
+        height: 4rem;
+        margin: 0.5rem;
+
+   
+            &.solidLegend{                      
+                color:rgb(1, 1, 1);                                                      
+         }  
+            &.liquidLegend{
+                color:rgb(19, 4, 135);
+         }
+            &.gasLegend{
+                color:rgb(165, 3, 3);
+        }  
+
+    }
+
+}
+
+/* abundance */
+
+#abundanceLegend{
+   
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    
+     li{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        text-align: center;
+        background-color: rgba(214,214,214,0.3);
+        border: solid 2px rgba(245, 245, 245, 0.9);
+        border-radius: 4px;
+        width: 4rem;
+        height: 4rem;
+        margin: 0.5rem;
+  
+            &.primordialLegend{                      
+                border: solid 2px rgba(245, 245, 245, 0.9);                                                     
+         }  
+            &.residuelLegend{
+                border: dashed 2px rgba(245, 245, 245, 0.9);
+         }
+            &.syntheticLegend{
+                border: dotted 2px rgba(245, 245, 245, 0.9);
+        }  
+
+    }
+
+}
+     
+}
+
+}
+
+
+
+
+
+
+
+
+

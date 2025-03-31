@@ -24,7 +24,7 @@ class Element
     private State $state;
     private Family $family;
     private Abundance $abundance;
-
+    
 
 
     public function __construct(
@@ -332,4 +332,5 @@ class Element
 
         return $this->abundance;
     }
+
 }
