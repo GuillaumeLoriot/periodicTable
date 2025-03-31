@@ -1,12 +1,93 @@
+
+*{
+    margin: 0;
+}
 body {
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 color: rgba(245, 245, 245, 0.9);
 background-image: url("Images/background3.jpg");
 background-size: cover;
+
+header{
+    .navbar{
+        display: flex;
+        margin: 0;
+        height: 7rem;
+        font-size: 1.3rem;
+        font-weight: 400;
+
+        background: linear-gradient(to bottom, rgba(169, 169, 169, 0.5) 0%, rgba(109, 116, 142, 0.01) 100%);
+}
+            #homeButton{
+                display: flex;
+                align-items: center;
+                width: 20%;
+                margin: 0 2rem;
+
+                #navbarHome{
+                    text-decoration: none;
+                    color: rgba(245, 245, 245, 0.9);
+                    border: solid 1px rgba(245, 245, 245, 0.9);
+                    border-radius: 7px;
+                    box-shadow: 2px 2px 4px gray; 
+                    padding: 0.5rem 0.7rem;
+                    &:hover{
+                        color: black;
+                        transform: scale(1.1);
+                        transition: transform 0.2s ease-in-out;
+                        transform-origin: center;
+                        background: radial-gradient(circle, rgba(214,214,214,0.1) 20%, rgba(81,110,135,0.3) 100%);
+                        box-shadow: 2px 2px 4px rgba(81,110,135,0.3);
+                        border-color: #516E87;
+                    }
+                }
+            }
+        .navbarNav{
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            .navItem{
+                display: flex;
+                align-items: center;
+                margin: 0 2rem ;
+                &:hover{
+                    transform: unset;
+                    background-color: unset;
+                }
+                
+                .navLink{
+                    text-decoration: none;
+                    color: rgba(245, 245, 245, 0.9);
+                    border: solid 1px rgba(245, 245, 245, 0.9);
+                    border-radius: 7px;
+                    box-shadow: 2px 2px 4px gray; 
+                    padding: 0.5rem 0.7rem;
+                    &:hover{
+                        color: black;
+                        transform: scale(1.1);
+                        transition: transform 0.2s ease-in-out;
+                        transform-origin: center;
+                        background: radial-gradient(circle, rgba(214,214,214,0.1) 20%, rgba(81,110,135,0.3) 100%);
+                        border-color: #516E87;
+                        box-shadow: 2px 2px 4px rgba(81,110,135,0.3);
+
+                    }
+                }
+            }
+        }
+    }
+
+
+
 #detailCard{
     display: flex;
     flex-direction: column;
     .card{
+        display: flex;
+        flex-direction: column;
         background: transparent;
         width: 80%;
         margin: 2rem;
@@ -72,7 +153,7 @@ background-size: cover;
             box-shadow: 2px 2px 4px gray;
             &:hover{
                 transform: scale(1.15);
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.2s ease-in-out;
                 transform-origin: center;
             } 
             div{
@@ -117,7 +198,7 @@ background-size: cover;
                 background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(20, 2, 214, 0.7) 100%);
                 box-shadow: 2px 2px 4px rgba(20, 2, 214, 0.7); 
                 transform: scale(1.15);
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.2s ease-in-out;
                 transform-origin: center;            
             }
 
@@ -141,7 +222,7 @@ background-size: cover;
                 background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(219, 3, 3, 0.7) 100%);
                 box-shadow: 2px 2px 4px rgba(219, 3, 3, 0.7); 
                 transform: scale(1.15);
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.2s ease-in-out;
                 transform-origin: center;            
             }
 
@@ -152,7 +233,7 @@ background-size: cover;
 
 
 #searchBar{
-    margin: 4rem;
+    margin: 2rem;
     display: flex;
     justify-content: center;
 
@@ -168,10 +249,17 @@ background-size: cover;
         &#searchButton{
             width: 4.5rem;
             height: 2.2rem;
-            background: rgba(245, 245, 245, 0.3);
+            
         }
         &#searchButton:hover{
+            color: black;
             transform: scale(1.15);
+            transform-origin: center;
+            transition: transform 0.2s ease-in-out;
+            background: radial-gradient(circle, rgba(214,214,214,0.1) 20%, rgba(81,110,135,0.3) 100%);
+            border-color: #516E87;
+            box-shadow: 2px 2px 4px rgba(81,110,135,0.3);
+
         }
     }
 }
@@ -206,11 +294,11 @@ background-size: cover;
             &:hover{
 
                 display: inline-block;
-                border-color: rgba(9, 199, 40, 0.7);
+                border-color: rgba(39, 99, 49, 0.7);
                 background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(9, 199, 40, 0.7) 100%);
-                box-shadow: 2px 2px 4px rgba(9, 199, 40, 0.7); 
+                box-shadow: 2px 2px 4px rgba(39, 99, 49, 0.7);
                 transform: scale(1.15);
-                transition: transform 0.3s ease-in-out;
+                transition: transform 0.2s ease-in-out;
                 transform-origin: center;            
             }
         }
@@ -267,7 +355,7 @@ background-size: cover;
         li:hover{
             background: rgba(245, 245, 245, 0.3);
             transform: scale(1.14);
-            transition: transform 0.3s ease-in-out;
+            transition: transform 0.2s ease-in-out;
 
         }
         
@@ -538,179 +626,181 @@ background-size: cover;
                             border-color: #695187;
          
                         }
+                        /* legend */
+                               
+                               div{
+                                   display: flex;
+                                   justify-content: flex-start;
+                                   align-items: center;
+                                   .legendTitle{     
+                                       font-size: 1.5rem;
+                                       font-weight: 400;
+                                       width: 10rem;
+                                       height: 1rem;
+                                       margin-left: 1rem;
+                                   }
+                                   h3{
+                                       font-size: 0.7rem;
+                                       font-weight: 600;
+                                   } 
+                               
+                               /* families */
+                               
+                               #familyLegend{
+                               
+                                               /* families */
+                                           display: flex;
+                                           justify-content: center;
+                                           padding: 0;
+                                           
+                                            li{
+                                               display: flex;
+                                               justify-content: center;
+                                               align-items: center;
+                                               list-style: none;
+                                               text-align: center;
+                                               border: solid 2px ;
+                                               border-radius: 4px;
+                                               width: 4rem;
+                                               height: 4rem;
+                                               margin: 0.5rem;                  
+                               
+                                                &.alcalinLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,145,219,0.7) 100%);;                          
+                                                    border-color: #3B91DB;
+                                                    box-shadow: 2px 2px 4px #3b90dbc9;               
+                                                }         
+                                                &.alcalino-terreuxLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(65,51,190,0.7) 100%);
+                                                    border-color: #4133BE;
+                                                    
+                                                    box-shadow: 2px 2px 4px #4133bec8;
+                                                }
+                                                &.lanthanidesLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,94,219,0.7) 100%);;                             
+                                                    border-color: #3B5EDB;
+                                                    box-shadow: 2px 2px 4px rgba(59,94,219,0.7);
+                                                }         
+                                                &.actinidesLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,195,219,0.7) 100%);
+                                                    
+                                                    border-color: #3BC3DB;
+                                                }       
+                                                &.metal-de-transitionLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(60,28,103,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #3C1C67;
+                                                }      
+                                                &.metal-pauvreLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(114,137,219,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #7289DB;
+                                                }          
+                                                &.metalloïdeLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(169,180,219,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #A9B4DB;
+                                                }          
+                                                &.autre-non-metalLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,110,135,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #516E87;
+                                                }           
+                                                &.halogeneLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(104,98,163,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #6862A3;
+                                                }           
+                                                &.gaz-nobleLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,127,135,0.7) 100%);;
+                                                    transform: scale(1.12);
+                                                    border-color: #517F87;
+                                                }           
+                                                &.non-classeLegend{
+                                                    background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(105,81,135,0.7) 100%);
+                                                    transform: scale(1.12);
+                                                    border-color: #695187;
+                                                }
+                                            }  
+                               
+                               }
+                               
+                               /* states */
+                               
+                               #stateLegend{
+                               
+                               display: flex;
+                               justify-content: center;
+                               padding: 0;
+                               
+                                li{
+                                   display: flex;
+                                   justify-content: center;
+                                   align-items: center;
+                                   list-style: none;
+                                   text-align: center;
+                                   background-color: rgba(214,214,214,0.3);
+                                   border: solid 2px rgba(245, 245, 245, 0.9);
+                                   border-radius: 4px;
+                                   width: 4rem;
+                                   height: 4rem;
+                                   margin: 0.5rem;
+                               
+                               
+                                       &.solidLegend{                      
+                                           color:rgb(1, 1, 1);                                                      
+                                    }  
+                                       &.liquidLegend{
+                                           color:rgb(19, 4, 135);
+                                    }
+                                       &.gasLegend{
+                                           color:rgb(165, 3, 3);
+                                   }  
+                               
+                               }
+                               
+                               }
+                               
+                               /* abundance */
+                               
+                               #abundanceLegend{
+                               
+                               display: flex;
+                               justify-content: center;
+                               padding: 0;
+                               
+                                li{
+                                   display: flex;
+                                   justify-content: center;
+                                   align-items: center;
+                                   list-style: none;
+                                   text-align: center;
+                                   background-color: rgba(214,214,214,0.3);
+                                   border: solid 2px rgba(245, 245, 245, 0.9);
+                                   border-radius: 4px;
+                                   width: 4rem;
+                                   height: 4rem;
+                                   margin: 0.5rem;
+                               
+                                       &.primordialLegend{                      
+                                           border: solid 2px rgba(245, 245, 245, 0.9);                                                     
+                                    }  
+                                       &.residuelLegend{
+                                           border: dashed 2px rgba(245, 245, 245, 0.9);
+                                    }
+                                       &.syntheticLegend{
+                                           border: dotted 2px rgba(245, 245, 245, 0.9);
+                                   }  
+                               
+                               }
+                               
+                               }
+                                
+                               }
         }
  
 
-/* legend */
 
-    div{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        .legendTitle{     
-            font-size: 1.5rem;
-            font-weight: 400;
-            width: 10rem;
-            height: 1rem;
-            margin-left: 1rem;
-        }
-        h3{
-            font-size: 0.7rem;
-            font-weight: 600;
-        } 
-
-/* families */
-
-    #familyLegend{
-
-                    /* families */
-                display: flex;
-                justify-content: center;
-                padding: 0;
-                
-                 li{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    list-style: none;
-                    text-align: center;
-                    border: solid 2px ;
-                    border-radius: 4px;
-                    width: 4rem;
-                    height: 4rem;
-                    margin: 0.5rem;                  
-
-                     &.alcalinLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,145,219,0.7) 100%);;                          
-                         border-color: #3B91DB;
-                         box-shadow: 2px 2px 4px #3b90dbc9;               
-                     }         
-                     &.alcalino-terreuxLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(65,51,190,0.7) 100%);
-                         border-color: #4133BE;
-                         box-shadow: 2px 2px 4px #4133bec8;
-                     }
-                     &.lanthanidesLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,94,219,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #3B5EDB;
-                     }         
-                     &.actinidesLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(59,195,219,0.7) 100%);
-                         transform: scale(1.12);
-                         border-color: #3BC3DB;
-                     }       
-                     &.metal-de-transitionLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(60,28,103,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #3C1C67;
-                     }      
-                     &.metal-pauvreLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(114,137,219,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #7289DB;
-                     }          
-                     &.metalloïdeLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(169,180,219,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #A9B4DB;
-                     }          
-                     &.autre-non-metalLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,110,135,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #516E87;
-                     }           
-                     &.halogeneLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(104,98,163,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #6862A3;
-                     }           
-                     &.gaz-nobleLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(81,127,135,0.7) 100%);;
-                         transform: scale(1.12);
-                         border-color: #517F87;
-                     }           
-                     &.non-classeLegend{
-                         background: radial-gradient(circle, rgba(214,214,214,0.3) 20%, rgba(105,81,135,0.7) 100%);
-                         transform: scale(1.12);
-                         border-color: #695187;
-                     }
-                 }  
-
-    }
-
-/* states */
-
-    #stateLegend{
-   
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    
-     li{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-        text-align: center;
-        background-color: rgba(214,214,214,0.3);
-        border: solid 2px rgba(245, 245, 245, 0.9);
-        border-radius: 4px;
-        width: 4rem;
-        height: 4rem;
-        margin: 0.5rem;
-
-   
-            &.solidLegend{                      
-                color:rgb(1, 1, 1);                                                      
-         }  
-            &.liquidLegend{
-                color:rgb(19, 4, 135);
-         }
-            &.gasLegend{
-                color:rgb(165, 3, 3);
-        }  
-
-    }
-
-}
-
-/* abundance */
-
-#abundanceLegend{
-   
-    display: flex;
-    justify-content: center;
-    padding: 0;
-    
-     li{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        list-style: none;
-        text-align: center;
-        background-color: rgba(214,214,214,0.3);
-        border: solid 2px rgba(245, 245, 245, 0.9);
-        border-radius: 4px;
-        width: 4rem;
-        height: 4rem;
-        margin: 0.5rem;
-  
-            &.primordialLegend{                      
-                border: solid 2px rgba(245, 245, 245, 0.9);                                                     
-         }  
-            &.residuelLegend{
-                border: dashed 2px rgba(245, 245, 245, 0.9);
-         }
-            &.syntheticLegend{
-                border: dotted 2px rgba(245, 245, 245, 0.9);
-        }  
-
-    }
-
-}
-     
-}
 
 
 
