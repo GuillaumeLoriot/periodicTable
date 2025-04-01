@@ -8,7 +8,7 @@ require_once __DIR__ . '/../blocks/header.php';
     <span class="d-block p-2 text-bg-dark">
 
         <label for="name">Nom</label>
-        <input type="text" name="name" value="<?php $element->getName() ?>">
+        <input type="text" name="name" value="<?= $element->getName() ?>">
 
         <?php if (isset($errors["name"])) { ?>
             <p class="text-danger">
@@ -21,7 +21,7 @@ require_once __DIR__ . '/../blocks/header.php';
     <span class="d-block p-2 text-bg-dark">
 
         <label for="atomicNumber">Numéro atomique</label>
-        <input type="number" name="atomicNumber" value="<?php $element->getAtomicNumber() ?>">
+        <input type="number" name="atomicNumber" value="<?= $element->getAtomicNumber() ?>">
 
         <?php if (isset($errors["atomicNumber"])) { ?>
             <p class="text-danger">
@@ -34,7 +34,7 @@ require_once __DIR__ . '/../blocks/header.php';
     <span class="d-block p-2 text-bg-dark">
 
         <label for="chemicalSymbol">Symbole chimique</label>
-        <input type="text" name="chemicalSymbol" value="<?php $element->getChemicalSymbol() ?>">
+        <input type="text" name="chemicalSymbol" value="<?= $element->getChemicalSymbol() ?>">
 
         <?php if (isset($errors["chemicalSymbol"])) { ?>
             <p class="text-danger">
@@ -46,7 +46,7 @@ require_once __DIR__ . '/../blocks/header.php';
     <span class="d-block p-2 text-bg-dark">
 
         <label for="atomicMass">Masse atomique</label>
-        <input type="number" name="atomicMass" value="<?php $element->getAtomicMass() ?>">
+        <input type="number" name="atomicMass" value="<?= $element->getAtomicMass() ?>">
 
         <?php if (isset($errors["atomicMass"])) { ?>
             <p class="text-danger">
@@ -58,7 +58,7 @@ require_once __DIR__ . '/../blocks/header.php';
     <span class="d-block p-2 text-bg-dark">
 
         <label for="group">Groupe</label>
-        <input type="number" name="group" value="<?php $element->getGroup() ?>">
+        <input type="number" name="group" value="<?= $element->getGroup() ?>">
 
         <?php if (isset($errors["group"])) { ?>
             <p class="text-danger">
@@ -70,7 +70,7 @@ require_once __DIR__ . '/../blocks/header.php';
 <span class="d-block p-2 text-bg-dark">
 
     <label for="period">Période</label>
-    <input type="number" name="period" value="<?php $element->getPeriod() ?>">
+    <input type="number" name="period" value="<?= $element->getPeriod() ?>">
 
     <?php if (isset($errors["period"])) { ?>
         <p class="text-danger">
@@ -83,7 +83,7 @@ require_once __DIR__ . '/../blocks/header.php';
 <span class="d-block p-2 text-bg-dark">
 
     <label for="definition">définition</label>
-    <input type="text" name="definition" value="<?php $element->getDefinition() ?>">
+    <input type="text" name="definition" value="<?= $element->getDefinition() ?>">
 
     <?php if (isset($errors["definition"])) { ?>
         <p class="text-danger">
@@ -96,7 +96,7 @@ require_once __DIR__ . '/../blocks/header.php';
 <span class="d-block p-2 text-bg-dark">
 
     <label for="discoveryDate">Date de découverte</label>
-    <input type="date" name="discoveryDate" value="<?php $element->getDiscoveryDate() ?>">
+    <input type="date" name="discoveryDate" value="<?= $element->getDiscoveryDateFormat() ?>">
 
     <?php if (isset($errors["discoveryDate"])) { ?>
         <p class="text-danger">
@@ -109,7 +109,7 @@ require_once __DIR__ . '/../blocks/header.php';
 <span class="d-block p-2 text-bg-dark">
 
     <label for="elementPicture">Photo de l'élément</label>
-    <input type="text" name="elementPicture" value="<?php $element->getElementPicture() ?>">
+    <input type="text" name="elementPicture" value="<?= $element->getElementPicture() ?>">
 
     <?php if (isset($errors["elementPicture"])) { ?>
         <p class="text-danger">
@@ -122,7 +122,7 @@ require_once __DIR__ . '/../blocks/header.php';
 <span class="d-block p-2 text-bg-dark">
 
     <label for="elementModel">Modèle shématique</label>
-    <input type="text" name="elementModel" value="<?php $element->getElementModel() ?>">
+    <input type="text" name="elementModel" value="<?= $element->getElementModel() ?>">
 
     <?php if (isset($errors["elementModel"])) { ?>
         <p class="text-danger">
@@ -145,6 +145,10 @@ require_once __DIR__ . '/../blocks/header.php';
         <p class="text-danger">
             <?= $errors["stateId"] ?>
         </p>
+    <?php } elseif (isset($errors["state"])) { ?>
+        <p class="text-danger">
+            <?= $errors["state"] ?>
+        </p>
     <?php } ?>
 
 </span>
@@ -162,8 +166,11 @@ require_once __DIR__ . '/../blocks/header.php';
         <p class="text-danger">
             <?= $errors["stateId"] ?>
         </p>
+    <?php } elseif (isset($errors["family"])) { ?>
+        <p class="text-danger">
+            <?= $errors["family"] ?>
+        </p>
     <?php } ?>
-
 </span>
 
 <span class="d-block p-2 text-bg-dark">
@@ -178,6 +185,10 @@ require_once __DIR__ . '/../blocks/header.php';
     <?php if (isset($errors["stateId"])) { ?>
         <p class="text-danger">
             <?= $errors["stateId"] ?>
+        </p>
+    <?php } elseif (isset($errors["abundance"])) { ?>
+        <p class="text-danger">
+            <?= $errors["abundance"] ?>
         </p>
     <?php } ?>
 

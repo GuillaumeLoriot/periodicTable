@@ -17,26 +17,24 @@
             <div id="homeButton">
                 <a id="navbarHome" href="index.php?action=admin">Accueil</a>
             </div>
+            <ul class="navbarNav">
+                <?php
 
-                
-                    <ul class="navbarNav">
-                        <?php
+                // Vérification de la connexion utilisateur
+                if (!isset($_SESSION["username"])) { ?>
+                    <li class="navItem">
+                        <a class="navLink" href="index.php?action=login">Connexion</a>
+                    </li>
+                <?php } else { ?>
+                    <li class="navItem">
+                        <a class="navLink" href="index.php?action=admin">Admin</a>
+                    </li>
+                    <li class="navItem">
+                        <a class="navLink" href="index.php?action=logout">Déconnexion</a>
+                    </li>
+                <?php } ?>
+            </ul>
 
-                        // Vérification de la connexion utilisateur
-                        if (!isset($_SESSION["username"])) { ?>
-                            <li class="navItem">
-                                <a class="navLink" href="index.php?action=login">Connexion</a>
-                            </li>
-                        <?php } else { ?>
-                            <li class="navItem">
-                                <a class="navLink" href="index.php?action=admin">Admin</a>
-                            </li>
-                            <li class="navItem">
-                                <a class="navLink" href="index.php?action=logout">Déconnexion</a>
-                            </li>
-                        <?php } ?>
-                    </ul>
-             
-           
+
         </nav>
     </header>

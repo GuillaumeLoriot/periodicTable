@@ -6,14 +6,14 @@ require_once __DIR__ . '/../blocks/header.php';
 
 <h1><?= $title ?></h1>
 
-<form action="index.php?action=homepage" method="POST" id="searchBar">
-    <input type="text">
-    <input type="submit" value="Search" id="searchButton">
+<form action="index.php?action=homePage" method="POST" id="searchBar">
+    <input type="text" name="search">
+    <input type="submit" value="Search" id="searchButton" >
 </form>
 
 <ul id="periodicTable">
     <?php foreach ($elements as $element): ?>
-        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= $element->getState()->getName(); ?> <?= $element->getFamily()->getName(); ?> <?= $element->getAbundance()->getName(); ?>">
+        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= $element->getState()->getName()."Search"; ?> <?= $element->getFamily()->getName()."Search"; ?> <?= $element->getAbundance()->getName()."Search"; ?>">
             <a href="index.php?action=detail_element&id=<?= $element->getId() ?>">
                 <p><?= $element->getName(); ?></p>
                 <h2><?= $element->getChemicalSymbol() ?></h2>
@@ -25,70 +25,35 @@ require_once __DIR__ . '/../blocks/header.php';
         </li>
     <?php endforeach; ?>
 </ul>
+<h2>Légende</h2>
 <div>
-    <h2 class="legendTitle">Familles</h2>
+    <h3 class="legendTitle">Familles</h3>
     <ul id="familyLegend">
-        <li class="alcalinLegend">
-            <h3>Alcalin</h3>
-        </li>
-        <li class="alcalino-terreuxLegend">
-            <h3>Alcalino terreux</h3>
-        </li>
-        <li class="lanthanidesLegend">
-            <h3>Lanthanides</h3>
-        </li>
-        <li class="actinidesLegend">
-            <h3>Actinides</h3>
-        </li>
-        <li class="metal-de-transitionLegend">
-            <h3>Métal de transition</h3>
-        </li>
-        <li class="metal-pauvreLegend">
-            <h3>Métal pauvre</h3>
-        </li>
-        <li class="metalloïdeLegend">
-            <h3>Métalloïde</h3>
-        </li>
-        <li class="autre-non-metalLegend">
-            <h3>Autre non métal</h3>
-        </li>
-        <li class="halogeneLegend">
-            <h3>Halogène</h3>
-        </li>
-        <li class="gaz-nobleLegend">
-            <h3>Gaznoble</h3>
-        </li>
-        <li class="non-classeLegend">
-            <h3>Non classé</h3>
-        </li>
+        <?php foreach ($families as $family): ?>
+            <li class="<?= $family->getName(); ?>Legend">
+                <h3><?= $family->getName(); ?></h3>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </div>
 <div>
-    <h2 class="legendTitle">Etats</h2>
+    <h3 class="legendTitle">Etats</h3>
     <ul id="stateLegend">
-        <li class="solidLegend">
-            <h3>Solide</h3>
-        </li>
-        <li class="liquidLegend">
-            <h3>Liquide</h3>
-        </li>
-        <li class="gasLegend">
-            <h3>Gaz</h3>
-        </li>
+        <?php foreach ($states as $state): ?>
+            <li class="<?= $state->getName(); ?>Legend">
+                <h3><?= $state->getName(); ?></h3>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </div>
 <div>
-    <h2 class="legendTitle">Abondances</h2>
+    <h3 class="legendTitle">Abondances</h3>
     <ul id="abundanceLegend">
-        <li class="primordialLegend">
-            <h3>Primordial</h3>
-        </li>
-        <li class="residuelLegend">
-            <h3>Résiduel</h3>
-        </li>
-        <li class="syntheticLegend">
-            <h3>Synthétique</h3>
-        </li>
+        <?php foreach ($abundances as $abundance): ?>
+            <li class="<?= $abundance->getName(); ?>Legend">
+                <h3><?= $abundance->getName(); ?></h3>
+            </li>
+        <?php endforeach; ?>
     </ul>
 </div>
 

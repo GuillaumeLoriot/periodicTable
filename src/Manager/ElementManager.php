@@ -195,10 +195,11 @@ class ElementManager extends DatabaseManager
 
         return $request->rowCount() > 0;
     }
+    
 
-    /**
+    /** work in progress for searchbar
      * Récupère une ligne de la table Element par name
-     * @param  int $id
+     * @param  string $name
      * @return Element
      */
     public function selectByName(string $name): array|false
@@ -211,10 +212,10 @@ class ElementManager extends DatabaseManager
             INNER JOIN family f ON f.id = e.family_id
             INNER JOIN state s ON s.id = e.state_id
             INNER JOIN abundance a  ON a.id = e.abundance_id
-            WHERE e.name LIKE %:name%;"
+            WHERE e.name LIKE :name;"
         );
         $request->execute([
-            ":name" => $name
+            ":name" => "%".$name."%"
         ]);
         $arrayElements = $request->fetchAll();
         //Créer un tableau qui contiendra les objets Element
@@ -251,7 +252,6 @@ class ElementManager extends DatabaseManager
                 $state,
                 $family,
                 $abundance
-
             );
         }
         return $elements;

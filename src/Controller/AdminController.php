@@ -13,19 +13,41 @@ class AdminController
 {
 
     private ElementManager $elementManager;
+    private FamilyManager $familyManager;
+    private StateManager $stateManager;
+    private AbundanceManager $abundanceManager;
 
     public function __construct()
     {
         $this->elementManager = new ElementManager();
+        $this->familyManager = new FamilyManager();
+        $this->stateManager = new StateManager();
+        $this->abundanceManager = new AbundanceManager();
     }
 
     // Route DashboardAdmin ( ancien admin.php ) 
     // URL : index.php?action=admin
     public function dashboardAdmin()
     {
-        //Récuperer les éléments
+        //Récuperer les éléments, les familles, les états et les abondances
         $elements = $this->elementManager->selectAll();
-        //Afficher les éléments dans la template
+        $families = $this->familyManager->selectAll();
+        $states = $this->stateManager->selectAll();
+        $abundances = $this->abundanceManager->selectAll();
+        //Récuperer les éléments, les familles, les états et les abondances dans la templates,
+        require_once("./templates/homePages/index_admin.php");
+    }
+
+    // Route DashboardAdmin ( ancien admin.php ) 
+    // URL : index.php?action=admin
+    public function dashboardAdminSearched()
+    {
+        //Récuperer les éléments, les familles, les états et les abondances
+        $elements = $this->elementManager->selectAll();
+        $families = $this->familyManager->selectAll();
+        $states = $this->stateManager->selectAll();
+        $abundances = $this->abundanceManager->selectAll();
+        //Récuperer les éléments, les familles, les états et les abondances dans la templates, 
         require_once("./templates/homePages/index_admin.php");
     }
 
@@ -62,32 +84,41 @@ class AdminController
 
             $errors = $this->validateElementForm($errors, $_POST);
 
+            // création avec les données du formulaire des différents objets nécéssaires à la création de l'objet élément
+            //  et vérification de l'éxistance de ces objets en BDD
+            $state = $stateManager->selectByID($_POST["stateId"]);
+            if (!$state) {
+                $errors["state"] = "L'état n'existe pas";
+            }
+            $family = $familyManager->selectById($_POST["familyId"]);
+            if (!$family) {
+                $errors["family"] = "La famille n'existe pas";
+            }
+            $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
+            if (!$abundance) {
+                $errors["abundance"] = "L'abondance n'existe pas";
+            }
+            $discoveryDate = new DateTime($_POST["discoveryDate"]);
+
             if (empty($errors)) {
-                
-                 // création avec les données du formulaire des différents objets nécéssaires à la création de l'objet élément 
-                $discoveryDate = new DateTime($_POST["discoveryDate"]);
-                $state = $stateManager->selectById($_POST["stateId"]);
-                $family = $familyManager->selectById($_POST["familyId"]);
-                $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
                 //Instancier un objet Element avec les données du formulaire et les objets créés juste avant
                 $element = new Element(null, $_POST["name"], $_POST["atomicNumber"], $_POST["chemicalSymbol"], $_POST["atomicMass"], $_POST["group"], $_POST["period"], $_POST["definition"], $discoveryDate, $_POST["elementPicture"], $_POST["elementModel"], $state, $family, $abundance);
 
-                // Ajouter la l'élément en BDD  et rediriger
-
-
+                // Ajouter l'élément en BDD  et rediriger    
                 $this->elementManager->insert($element, $state, $family, $abundance);
                 $this->dashboardAdmin();
                 exit();
-            }
+            } 
         }
         require_once("./templates/elements/element_add.php");
     }
 
+    
     // Route EditElement ( ancien update.php ) 
     // URL : index.php?action=edit&id=1
     public function editElement(int $id)
     {
-        $element = $this->elementManager->selectByID($id); 
+        $element = $this->elementManager->selectByID($id);
 
         //Vérifier si l'élément avec l'ID existe en BDD
         if (!$element) {
@@ -109,13 +140,23 @@ class AdminController
             // Vérifier les champs du formulaire
             $errors = $this->validateElementForm($errors, $_POST);
             // Si le formulaire n'a pas renvoyé d'erreurs
-            if (empty($errors)) {
+            // création avec les données du formulaire des différents objets nécéssaires à la modification de l'objet élément
+            //  et vérification de l'éxistance de ces objets en BDD
+            $state = $stateManager->selectByID($_POST["stateId"]);
+            if (!$state) {
+                $errors["state"] = "L'état n'existe pas";
+            }
+            $family = $familyManager->selectById($_POST["familyId"]);
+            if (!$family) {
+                $errors["family"] = "La famille n'existe pas";
+            }
+            $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
+            if (!$abundance) {
+                $errors["abundance"] = "L'abondance n'existe pas";
+            }
+            $discoveryDate = new DateTime($_POST["discoveryDate"]);
 
-                // création avec les données du formulaire des différents objets nécéssaires à la création de l'objet élément
-                $discoveryDate = new DateTime($_POST["discoveryDate"]);
-                $state = $stateManager->selectById($_POST["stateId"]);
-                $family = $familyManager->selectById($_POST["familyId"]);
-                $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
+            if (empty($errors)) {
                 // Mettre à jour l'élément $element et rediriger
                 $element->setName($_POST["name"]);
                 $element->setAtomicNumber($_POST["atomicNumber"]);
@@ -131,7 +172,6 @@ class AdminController
                 $element->setAbundance($abundance);
 
                 $this->elementManager->update($element);
-
                 $this->detailElementAdmin($id);
                 exit();
             }

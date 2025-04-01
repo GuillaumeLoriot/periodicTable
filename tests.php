@@ -1,7 +1,7 @@
 <?php
 
 require_once (__DIR__ . '/vendor/autoload.php');
-require_once (__DIR__ . '/templates/users/user_profil.php');
+// require_once (__DIR__ . '/templates/users/user_profil.php');
 
 
 use App\Manager\StateManager;
@@ -39,6 +39,5 @@ $testSelectById = $elementManager-> selectById(102);
 dump($testSelectById);
 
 
-
-
-
+$testSelectByName = $elementManager -> selectByName("crtiz");
+dump($testSelectByName);
