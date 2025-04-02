@@ -971,36 +971,36 @@ body {
     /* chaque classe présente dans cette liste représente respectivement les objets state, family et abundance de mon php */
 
     /* states */
-    .solide:hover {
+    .solideSearch,.solide:hover {
         a {
             color: rgb(1, 1, 1) !important;
         }
     }
 
-    .liquide:hover {
+    .liquideSearch,.liquide:hover {
         a {
             color: rgb(19, 4, 135) !important;
         }
     }
 
-    .gaz:hover {
+    .gazSearch,.gaz:hover {
         a {
             color: rgb(165, 3, 3) !important;
         }
     }
 
     /* abundances */
-    .primordial {
+    .primordial,.primordialSearch {
         border: solid 2px rgba(245, 245, 245, 0.9);
         border-radius: 4px;
     }
 
-    .residuel {
+    .residuel,.residuelSearch {
         border: dashed 2px rgba(245, 245, 245, 0.9);
         border-radius: 4px;
     }
 
-    .synthetique {
+    .synthetique,.synthetiqueSearch {
         border: dotted 2px rgba(245, 245, 245, 0.9);
         border-radius: 4px;
     }
@@ -1022,71 +1022,82 @@ body {
 
     .alcalinSearch,.alcalin:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(59, 145, 219, 0.7) 100%);
+        transform: scale(1.12);
         border-color: #3B91DB;
-        box-shadow: 2px 2px 4px #3b90dbc9;
+        box-shadow: 2px 2px 4px rgba(59, 145, 219, 0.7);
     }
 
-    .alcalino-terreux:hover {
+    .alcalino-terreuxSearch,.alcalino-terreux:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(65, 51, 190, 0.7) 100%);
+        transform: scale(1.12);
         border-color: #4133BE;
-        box-shadow: 2px 2px 4px #4133bec8;
+        box-shadow: 2px 2px 4px rgba(65, 51, 190, 0.7);
     }
 
-    .lanthanides:hover {
+    .lanthanidesSearch,.lanthanides:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(59, 94, 219, 0.7) 100%);
         transform: scale(1.12);
         border-color: #3B5EDB;
+        box-shadow: 2px 2px 4px rgba(59, 94, 219, 0.7);
     }
 
 
-    .actinides:hover {
+    .actinidesSearch,.actinides:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(59, 195, 219, 0.7) 100%);
         transform: scale(1.12);
         border-color: #3BC3DB;
+        box-shadow: 2px 2px 4px rgba(59, 195, 219, 0.7);
     }
 
 
-    .metal-de-transition:hover {
+    .metal-de-transitionSearch,.metal-de-transition:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(60, 28, 103, 0.7) 100%);
         transform: scale(1.12);
         border-color: #3C1C67;
+        box-shadow: 2px 2px 4px rgba(60, 28, 103, 0.7);
     }
 
 
-    .metal-pauvre:hover {
+    .metal-pauvreSearch,.metal-pauvre:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(114, 137, 219, 0.7) 100%);
         transform: scale(1.12);
         border-color: #7289DB;
+        box-shadow: 2px 2px 4px rgba(114, 137, 219, 0.7);
     }
 
-    .metalloïde:hover {
+    .metalloïdeSearch,.metalloïde:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(169, 180, 219, 0.7) 100%);
         transform: scale(1.12);
         border-color: #A9B4DB;
+        box-shadow: 2px 2px 4px rgba(169, 180, 219, 0.7);
     }
 
-    .autre-non-metal:hover {
+    .autre-non-metalSearch,.autre-non-metal:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(81, 110, 135, 0.7) 100%);
         transform: scale(1.12);
         border-color: #516E87;
+        box-shadow: 2px 2px 4px rgba(81, 110, 135, 0.7);
     }
 
-    .halogene:hover {
+    .halogeneSearch,.halogene:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(104, 98, 163, 0.7) 100%);
         transform: scale(1.12);
         border-color: #6862A3;
+        box-shadow: 2px 2px 4px rgba(104, 98, 163, 0.7);
     }
 
-    .gaz-noble:hover {
+    .gaz-nobleSearch,.gaz-noble:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(81, 127, 135, 0.7) 100%);
         transform: scale(1.12);
         border-color: #517F87;
+        box-shadow: 2px 2px 4px rgba(81, 127, 135, 0.7);
     }
 
-    .non-classe:hover {
+    .non-classeSearch,.non-classe:hover {
         background: radial-gradient(circle, rgba(214, 214, 214, 0.3) 20%, rgba(105, 81, 135, 0.7) 100%);
         transform: scale(1.12);
         border-color: #695187;
+        box-shadow: 2px 2px 4px rgba(105, 81, 135, 0.7);
 
     }
 

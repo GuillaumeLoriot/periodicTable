@@ -13,7 +13,7 @@ require_once __DIR__ . '/../blocks/header.php';
 
 <ul id="periodicTable">
     <?php foreach ($elements as $element): ?>
-        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= $element->getState()->getName()."Search"; ?> <?= $element->getFamily()->getName()."Search"; ?> <?= $element->getAbundance()->getName()."Search"; ?>">
+        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= in_array($element->getId(), $foundElementIds) ?$element->getState()->getName()."Search ". $element->getFamily()->getName()."Search ".$element->getAbundance()->getName()."Search" : $element->getState()->getName()." ". $element->getFamily()->getName()." ".$element->getAbundance()->getName(); ?>">
             <a href="index.php?action=detail_element&id=<?= $element->getId() ?>">
                 <p><?= $element->getName(); ?></p>
                 <h2><?= $element->getChemicalSymbol() ?></h2>

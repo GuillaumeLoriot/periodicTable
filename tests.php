@@ -8,6 +8,7 @@ use App\Manager\StateManager;
 use App\Manager\AbundanceManager;
 use App\Manager\FamilyManager;
 use App\Manager\ElementManager;
+use App\Controller\helpers\Helper;
 
 $stateManager = new StateManager();
 $testSelectAll = $stateManager-> selectAll();
@@ -35,9 +36,9 @@ $testSelectAll = $elementManager-> selectAll();
 dump($testSelectAll);
 
 
-$testSelectById = $elementManager-> selectById(102);
+$testSelectById = $elementManager-> selectById(6);
 dump($testSelectById);
 
 
-$testSelectByName = $elementManager -> selectByName("crtiz");
+$testSelectByName = $elementManager -> selectByName("carbo");
 dump($testSelectByName);

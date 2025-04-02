@@ -7,6 +7,7 @@ use App\Manager\StateManager;
 use App\Manager\FamilyManager;
 use App\Manager\AbundanceManager;
 use App\Model\Element;
+use App\Controller\helpers\Helper;
 use DateTime;
 
 class AdminController
@@ -105,7 +106,7 @@ class AdminController
                 $element = new Element(null, $_POST["name"], $_POST["atomicNumber"], $_POST["chemicalSymbol"], $_POST["atomicMass"], $_POST["group"], $_POST["period"], $_POST["definition"], $discoveryDate, $_POST["elementPicture"], $_POST["elementModel"], $state, $family, $abundance);
 
                 // Ajouter l'élément en BDD  et rediriger    
-                $this->elementManager->insert($element, $state, $family, $abundance);
+                $this->elementManager->insert($element);
                 $this->dashboardAdmin();
                 exit();
             } 
