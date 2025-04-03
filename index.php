@@ -3,6 +3,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 use App\Controller\IndexController;
 use App\Controller\AdminController;
+use App\Controller\SecurityController;
+
+session_start();
+
+if (isset($_SESSION["username"])) {
+    $isLoggedIn = true;
+} else {
+    $isLoggedIn = false;
+}
 
 $isLoggedIn = true;
 
@@ -21,23 +30,20 @@ if (isset($_GET['id'])) {
 
 $indexController = new IndexController();
 $adminController = new AdminController();
-// $securityController = new SecurityController();
+$securityController = new SecurityController();
 
 
 if ($action === 'detail_element' && !is_null($id)) {
 
-    // echo ("page détail élément");
     $indexController->detailElement($id);
 
 } elseif ($action === 'detail_element_admin' && !is_null($id)) {
 
-    // echo ("page détail élément administrateur");
     $adminController->detailElementAdmin($id);
 
 } elseif ($action === 'login') {
 
-    echo ("page conexion");
-    // $securityController->login();
+    $securityController->login();
 
 } 
 // elseif ($action === 'register') {
@@ -45,12 +51,12 @@ if ($action === 'detail_element' && !is_null($id)) {
 //     echo ("page s'enregistrer");
 //     // $securityController->register();
 
-// } elseif ($action === 'logout' && $isLoggedIn) {
+// }
+ elseif ($action === 'logout' && $isLoggedIn) {
 
-//     echo ("page HomePage suite au logout");
-//     // $securityController->logout();
+    $securityController->logout();
 
-// } 
+} 
 elseif ($action === 'admin' && $isLoggedIn) {
 
     $adminController->dashboardAdmin();
@@ -62,12 +68,10 @@ elseif ($action === 'admin' && $isLoggedIn) {
 
 } elseif ($action === 'edit_element' && !is_null($id) && $isLoggedIn && $id > 119) {
 
-    echo ("page de modification d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118");
     $adminController->editElement($id);
 
 } elseif ($action === 'delete_element' && !is_null($id) && $isLoggedIn) {
 
-    echo ("page de supression d'un elément uniquement si l'id (id corespond au atomic-number en bdd pour les 118 premiers éléments) est supérieur à 118 (le refaire corectement avec une nouvelle colone bdd plus tard)");
     $adminController->deleteElement($id);
 
 } 

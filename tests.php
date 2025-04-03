@@ -42,3 +42,6 @@ dump($testSelectById);
 
 $testSelectByName = $elementManager -> selectByName("carbo");
 dump($testSelectByName);
+
+$testVerifyAtomicNumber = $elementManager -> verifyAtomicNumber(110);
+dump($testVerifyAtomicNumber);

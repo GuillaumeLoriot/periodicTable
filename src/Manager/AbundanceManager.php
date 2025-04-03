@@ -34,7 +34,7 @@ class AbundanceManager extends DatabaseManager{
      * @param  int $id
      * @return Abundance
      */
-    public function selectByID(int $id): Abundance|false
+    public function selectById(int $id): Abundance|false
     {
         $request = self::getConnexion()->prepare("SELECT * FROM `Abundance` WHERE id = :id;");
         $request->execute([

@@ -8,7 +8,7 @@ require_once __DIR__ . '/../blocks/header.php';
 
 <form action="index.php?action=homePage" method="POST" id="searchBar">
     <input type="text" name="search">
-    <input type="submit" value="Search" id="searchButton" >
+    <input type="submit" value="search" id="searchButton" >
 </form>
 
 <ul id="periodicTable">

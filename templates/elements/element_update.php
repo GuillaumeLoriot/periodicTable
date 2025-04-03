@@ -27,7 +27,11 @@ require_once __DIR__ . '/../blocks/header.php';
             <p class="text-danger">
                 <?= $errors["atomicNumber"] ?>
             </p>
-        <?php } ?>
+        <?php } elseif (isset( $errors["existingAtomicNumber"])) { ?>
+            <p class="text-danger">
+                <?= $errors["existingAtomicNumber"] ?>
+            </p>
+        <?php }?>
 
     </span>
 

@@ -71,7 +71,7 @@ class ElementManager extends DatabaseManager
      * @param  int $id
      * @return Element
      */
-    public function selectByID(int $id): Element|false
+    public function selectById(int $id): Element|false
     {
         $request = self::getConnexion()->prepare(
             "SELECT e.id, e.name, e.atomic_number, e.chemical_symbol, e.atomic_mass, e.`group`, e.period, e.definition, e.discovery_date, 
@@ -116,6 +116,22 @@ class ElementManager extends DatabaseManager
             $abundance
 
         );
+    }
+
+
+
+    public function verifyAtomicNumber(int $atomicNumber): bool
+    {
+
+        $request = self::getConnexion()->prepare(
+            "SELECT EXISTS(SELECT 1 FROM element WHERE atomic_number = :atomic_number) AS atomicNumberVerify;"
+        );
+        $request->execute([
+            ":atomic_number" => $atomicNumber
+        ]);
+        $result = $request->fetch();       
+       
+        return $result["atomicNumberVerify"];
     }
 
     /**

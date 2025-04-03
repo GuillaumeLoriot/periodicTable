@@ -10,12 +10,11 @@
         <?= $title ?? "Tableau périodique" ?>
     </title>
 </head>
-
 <body>
     <header>
         <nav class="navbar">
             <div id="homeButton">
-                <a id="navbarHome" href="index.php?action=admin">Accueil</a>
+                <a id="navbarHome" href="<?= isset($_SESSION["username"])? "index.php?action=admin" : "index.php?action=homePage"  ?>">Accueil</a>
             </div>
             <ul class="navbarNav">
                 <?php
@@ -34,7 +33,5 @@
                     </li>
                 <?php } ?>
             </ul>
-
-
         </nav>
     </header>

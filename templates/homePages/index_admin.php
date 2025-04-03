@@ -7,8 +7,8 @@ require_once __DIR__ . '/../blocks/header.php';
 <h1><?= $title ?></h1>
 
 <form action="index.php?action=admin" method="POST" id="searchBar">
-    <input type="text">
-    <input type="submit" value="Search" id="searchButton">
+    <input type="text" name="search">
+    <input type="submit" value="search" id="searchButton">
 </form>
 
 <div id="button">
@@ -18,7 +18,7 @@ require_once __DIR__ . '/../blocks/header.php';
 
 <ul id="periodicTable">
     <?php foreach ($elements as $element): ?>
-        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= $element->getState()->getName(); ?> <?= $element->getFamily()->getName(); ?> <?= $element->getAbundance()->getName(); ?>">
+        <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= in_array($element->getId(), $foundElementIds) ?$element->getState()->getName()."Search ". $element->getFamily()->getName()."Search ".$element->getAbundance()->getName()."Search" : $element->getState()->getName()." ". $element->getFamily()->getName()." ".$element->getAbundance()->getName(); ?>">
             <a href="index.php?action=detail_element_admin&id=<?= $element->getId() ?>">
                 <p><?= $element->getName(); ?></p>
                 <h2><?= $element->getChemicalSymbol() ?></h2>

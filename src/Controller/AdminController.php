@@ -7,7 +7,6 @@ use App\Manager\StateManager;
 use App\Manager\FamilyManager;
 use App\Manager\AbundanceManager;
 use App\Model\Element;
-use App\Controller\helpers\Helper;
 use DateTime;
 
 class AdminController
@@ -35,7 +34,17 @@ class AdminController
         $families = $this->familyManager->selectAll();
         $states = $this->stateManager->selectAll();
         $abundances = $this->abundanceManager->selectAll();
-        //Récuperer les éléments, les familles, les états et les abondances dans la templates,
+        $foundElementIds=[];
+        if(!empty($_POST["search"])){          
+
+            $foundElements = $this->elementManager->selectByName( $_POST["search"]);
+            //  récupère un tableau de un ou plusieurs éléments ou false si pas de résultat
+            if (!empty($foundElements)) {
+                foreach ($foundElements as $foundElement) {
+                    $foundElementIds[]= $foundElement->getId();
+                }
+            } 
+        } 
         require_once("./templates/homePages/index_admin.php");
     }
 
@@ -56,7 +65,7 @@ class AdminController
     public function detailElementAdmin(int $id)
     {
         //Récuperer les elements
-        $element = $this->elementManager->selectByID($id);
+        $element = $this->elementManager->selectById($id);
         if ($element != false) {
             //Afficher les éléments dans la template
             require_once("./templates/elements/element_detail_admin.php");
@@ -72,13 +81,9 @@ class AdminController
     {
         $errors = [];
 
-        $stateManager = new StateManager();
-        $familyManager = new FamilyManager();
-        $abundanceManager = new AbundanceManager();
-
-        $states = $stateManager->selectAll();
-        $families = $familyManager->selectAll();
-        $abundances = $abundanceManager->selectAll();
+        $states = $this->stateManager->selectAll();
+        $families = $this->familyManager->selectAll();
+        $abundances = $this->abundanceManager->selectAll();
 
         // Si le formulaire est validé
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -86,18 +91,22 @@ class AdminController
             $errors = $this->validateElementForm($errors, $_POST);
 
             // création avec les données du formulaire des différents objets nécéssaires à la création de l'objet élément
-            //  et vérification de l'éxistance de ces objets en BDD
-            $state = $stateManager->selectByID($_POST["stateId"]);
+            //  + vérification de l'éxistance de ces objets et du numero atomic en BDD
+            $state = $this->stateManager->selectByID($_POST["stateId"]);
             if (!$state) {
                 $errors["state"] = "L'état n'existe pas";
             }
-            $family = $familyManager->selectById($_POST["familyId"]);
+            $family = $this->familyManager->selectById($_POST["familyId"]);
             if (!$family) {
                 $errors["family"] = "La famille n'existe pas";
             }
-            $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
+            $abundance = $this->abundanceManager->selectById($_POST["abundanceId"]);
             if (!$abundance) {
                 $errors["abundance"] = "L'abondance n'existe pas";
+            }
+            $existingAtomicNumber = $this->elementManager->verifyAtomicNumber($_POST["atomicNumber"]);
+            if($existingAtomicNumber){
+                $errors["existingAtomicNumber"] = "Ce numero atomic est déjà utilisé";
             }
             $discoveryDate = new DateTime($_POST["discoveryDate"]);
 
@@ -119,7 +128,7 @@ class AdminController
     // URL : index.php?action=edit&id=1
     public function editElement(int $id)
     {
-        $element = $this->elementManager->selectByID($id);
+        $element = $this->elementManager->selectById($id);
 
         //Vérifier si l'élément avec l'ID existe en BDD
         if (!$element) {
@@ -128,13 +137,9 @@ class AdminController
 
         $errors = [];
 
-        $stateManager = new StateManager();
-        $familyManager = new FamilyManager();
-        $abundanceManager = new AbundanceManager();
-
-        $states = $stateManager->selectAll();
-        $families = $familyManager->selectAll();
-        $abundances = $abundanceManager->selectAll();
+        $states = $this->stateManager->selectAll();
+        $families = $this->familyManager->selectAll();
+        $abundances = $this->abundanceManager->selectAll();
         // Si le formulaire est validé
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -143,18 +148,26 @@ class AdminController
             // Si le formulaire n'a pas renvoyé d'erreurs
             // création avec les données du formulaire des différents objets nécéssaires à la modification de l'objet élément
             //  et vérification de l'éxistance de ces objets en BDD
-            $state = $stateManager->selectByID($_POST["stateId"]);
+            $state = $this->stateManager->selectByID($_POST["stateId"]);
             if (!$state) {
                 $errors["state"] = "L'état n'existe pas";
             }
-            $family = $familyManager->selectById($_POST["familyId"]);
+            $family = $this->familyManager->selectById($_POST["familyId"]);
             if (!$family) {
                 $errors["family"] = "La famille n'existe pas";
             }
-            $abundance = $abundanceManager->selectById($_POST["abundanceId"]);
+            $abundance = $this->abundanceManager->selectById($_POST["abundanceId"]);
             if (!$abundance) {
                 $errors["abundance"] = "L'abondance n'existe pas";
             }
+            // si on essai de modifier le numero atomic, verifie si le nouveau numero n'est pas déja utilisé, sinon erreur
+            $existingAtomicNumber = $this->elementManager->verifyAtomicNumber($_POST["atomicNumber"]);
+            if($_POST["atomicNumber"] != $element->getAtomicNumber()){
+                if($existingAtomicNumber){
+                    $errors["existingAtomicNumber"] = "Ce numero atomic est déjà utilisé et ne correspond pas à l'élément en cours de modification";
+                }
+            }
+
             $discoveryDate = new DateTime($_POST["discoveryDate"]);
 
             if (empty($errors)) {
@@ -184,7 +197,7 @@ class AdminController
     public function deleteElement(int $id)
     {
 
-        $element = $this->elementManager->selectByID($id);
+        $element = $this->elementManager->selectById($id);
 
         //Vérifier si l'élément avec l'ID existe en BDD
         if (!$element) {

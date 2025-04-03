@@ -55,7 +55,7 @@ class IndexController
     // Route DetailElement -> URL: index.php?action=detail&id=
     public function detailElement(int $id)
     {
-        $element = $this->elementManager->selectByID($id);
+        $element = $this->elementManager->selectById($id);
         if ($element != false) {
             //Afficher les éléments dans la template
             require_once("./templates/elements/element_detail.php");
