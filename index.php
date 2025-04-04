@@ -13,8 +13,6 @@ if (isset($_SESSION["username"])) {
     $isLoggedIn = false;
 }
 
-$isLoggedIn = true;
-
 // Récupérer les paramètres de l'URL
 if (isset($_GET['action'])) {
     $action = $_GET['action'];

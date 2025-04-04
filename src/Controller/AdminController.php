@@ -169,7 +169,7 @@ class AdminController
             }
 
             $discoveryDate = new DateTime($_POST["discoveryDate"]);
-
+           
             if (empty($errors)) {
                 // Mettre à jour l'élément $element et rediriger
                 $element->setName($_POST["name"]);
@@ -205,12 +205,17 @@ class AdminController
             exit();
         }
 
-        //Si le form est validé
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            //Supprimer l'élément et rediriger
-            $this->elementManager->deleteByID($element->getId());
-            $this->dashboardAdmin();
-            exit();
+        //Si le form est validé et que le numero atomic est inferieur à 119, on peut suprimer l'élément sinon redirection
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && $element->getAtomicNumber()<119) {
+            if($element->getAtomicNumber() > 118){
+                //Supprimer l'élément et rediriger
+                $this->elementManager->deleteByID($element->getId());
+                $this->dashboardAdmin();
+                exit();
+            }
+            else{
+                $this->dashboardAdmin();
+            }
         }
 
         require_once("./templates/elements/element_delete.php");

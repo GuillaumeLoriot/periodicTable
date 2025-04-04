@@ -38,13 +38,14 @@ require_once __DIR__ . '/../blocks/header.php';
 </div>
 <div>
     <h3 class="legendTitle">Etats</h3>
-    <ul id="stateLegend">
-        <?php foreach ($states as $state): ?>
-            <li class="<?= $state->getName(); ?>Legend">
-                <h3><?= $state->getName(); ?></h3>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+        <ul id="stateLegend">
+            <?php foreach ($states as $state): ?>
+                <li class="<?= $state->getName(); ?>Legend">
+                    <h3><?= $state->getName(); ?></h3>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </form>
 </div>
 <div>
     <h3 class="legendTitle">Abondances</h3>
@@ -60,3 +61,5 @@ require_once __DIR__ . '/../blocks/header.php';
 
 <?php
 require_once __DIR__ . '/../blocks/footer.php';
+
+
