@@ -25,7 +25,8 @@ L’objectif principal était de me concentrer sur la logique back-end et la mis
 
 ## 📸 Aperçu
 
-![periodicTableFull](https://github.com/user-attachments/assets/f9436349-eaa4-43f6-b29c-f5d1ec797291)
+![periodicTableFull](https://github.com/user-attachments/assets/02183667-efed-45db-8060-fd53ce2c8435)
+
 
 
 ## 🚀 Pour lancer le projet en local, penser à récupérer le .sql et changer les identifiants du fichier DatabaseManager.php
