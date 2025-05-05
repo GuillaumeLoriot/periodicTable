@@ -1,11 +1,11 @@
 # 🧪 Tableau Périodique Interactif
 
 Bienvenue sur mon projet de **tableau périodique des éléments chimiques** développé en **PHP**, **HTML**, **CSS** et connecté à une **base de données MySQL**.  
-Ce projet est construit selon une architecture **MVC orientée objet** faite à la main, et offre une interface pour consulter, gérer et rechercher les éléments chimiques.
-Je l’ai réalisé dans le cadre d’une formation de développeur web et web mobile.
-Ce projet est le premier que j’ai mené seul en PHP, et il doit être considéré comme tel : il m’a permis d’apprendre énormément.
-Il reste perfectible et mériterait des optimisations et améliorations (externalisation de connection BDD, amélioration du routeur, etc...).
-Étant un projet d’apprentissage du PHP, je n’ai pas approfondi la partie front-end ni travaillé sur l’aspect responsive.
+Ce projet est construit selon une architecture **MVC orientée objet** faite à la main, et offre une interface pour consulter, gérer et rechercher les éléments chimiques.  
+Je l’ai réalisé dans le cadre d’une formation de développeur web et web mobile.  
+Ce projet est le premier que j’ai mené seul en PHP, et il doit être considéré comme tel : il m’a permis d’apprendre énormément.  
+Il reste perfectible et mériterait des optimisations et améliorations (externalisation de connection BDD, amélioration du routeur, etc...).  
+Étant un projet d’apprentissage du PHP, je n’ai pas approfondi la partie front-end ni travaillé sur l’aspect responsive.  
 L’objectif principal était de me concentrer sur la logique back-end et la mise en place d’une architecture MVC.
 
 ## ✨ Fonctionnalités
