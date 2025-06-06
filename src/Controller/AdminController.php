@@ -205,8 +205,8 @@ class AdminController
             exit();
         }
 
-        //Si le form est validé et que le numero atomic est inferieur à 119, on peut suprimer l'élément sinon redirection
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && $element->getAtomicNumber()<119) {
+        //Si le form est validé en POST et que le numero atomic est superieur à 118, on peut suprimer l'élément sinon redirection
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if($element->getAtomicNumber() > 118){
                 //Supprimer l'élément et rediriger
                 $this->elementManager->deleteByID($element->getId());

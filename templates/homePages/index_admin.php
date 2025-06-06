@@ -11,11 +11,6 @@ require_once __DIR__ . '/../blocks/header.php';
     <input type="submit" value="search" id="searchButton">
 </form>
 
-<div id="button">
-    <a id="addButton" href="index.php?action=add">Ajouter</a>
-</div>
-
-
 <ul id="periodicTable">
     <?php foreach ($elements as $element): ?>
         <li id="element<?= $element->getAtomicNumber(); ?>" class="<?= in_array($element->getId(), $foundElementIds) ?$element->getState()->getName()."Search ". $element->getFamily()->getName()."Search ".$element->getAbundance()->getName()."Search" : $element->getState()->getName()." ". $element->getFamily()->getName()." ".$element->getAbundance()->getName(); ?>">

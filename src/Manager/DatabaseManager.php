@@ -22,7 +22,7 @@ class DatabaseManager
         $host = 'localhost';
         $dbName = 'periodic_table';
         $user = 'root';
-        $password = '';
+        $password = 'admin';
 
         try {
 		    // Renvoie d'un objet PDO ( connexion à la BDD )
@@ -50,7 +50,7 @@ class DatabaseManager
      */
     protected static function getConnexion(): PDO
 	  {
-		// 1️⃣ Vérification de l'existence d'une connexion / création de la connexion
+		// 1️ Vérification de l'existence d'une connexion / création de la connexion
 				
         //Vérification si la connexion existe
         if (self::$pdo === null) {
@@ -62,7 +62,7 @@ class DatabaseManager
         }
         
         
-	  // 2️⃣ Renvoie de la connexion à utiliser dans le programme
+	  // 2️ Renvoie de la connexion à utiliser dans le programme
 
         // Retourner l'instance de PDO static
         return self::$pdo;

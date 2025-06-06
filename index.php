@@ -31,6 +31,7 @@ $adminController = new AdminController();
 $securityController = new SecurityController();
 
 
+
 if ($action === 'detail_element' && !is_null($id)) {
 
     $indexController->detailElement($id);
